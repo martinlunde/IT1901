@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angular Auth</title>
+    <title>Samfundet.no</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="assets/img/favicon.ico" rel="icon">
     <link rel="stylesheet" href="css/main.css">
 
     <!-- Fonts -->
@@ -22,9 +23,11 @@
   <body ng-controller="mainCtrl">
     <div id="top-bar">
       <div class="container">
-        <a href="/" id="banner-logo"></a>
+        <a href="/#/" id="banner-logo"></a>
         <div id="session-status">
-          <a href="/#/login" class="login">Logg inn</a>
+          <a ng-hide="(currentUser != null)" href="/#/login" class="login">Logg inn</a>
+          <a ng-show="(currentUser != null)"><b>{{currentUser.email}} ({{currentUserInformation.stilling}})</b></a>
+          <a ng-show="(currentUser != null)" ng-click="signOut()" href="/#/login">Logout</a>
         </div>
       </div>
     </div>
@@ -33,55 +36,25 @@
       <div class="row">
         <div id="header" class="col-md-12">
           <div class="col-md-5">
-            <p>
-
-            </p>
+            <nav class="nav-left">
+              <ul>
+                <li ng-show="(currentUser != null)"><a href="/#/">Kalender</a></li>
+              </ul>
+            </nav>
           </div>
           <div class="col-md-2">
             <a class="samfundet-icon" href="/#/"></a>
           </div>
           <div class="col-md-5">
-            <p>
-
-            </p>
+            <nav class="nav-right">
+              <ul>
+                <li ng-show="(currentUser != null)"><a href="/#/profile">Profile</a></li>
+                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/bookingoversikt">Bookingoversikt</a></li>
+                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/new-booking">+ Ny booking</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
-      </div>
-
-
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"></a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav">
-              <li><a href="/#/">Home</a></li>
-              <li><a href="/#/profile">Profile</a></li>
-              <li><a ng-hide="(currentUser != null)" href="/#/login">Login</a></li>
-              <li><a ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')" href="/#/new-booking">+ Ny booking</a></li>
-              <li><a ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')" href="/#/bookingoversikt">Bookingoversikt</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" ng-show="currentUser != null">
-              <li><a><b>{{currentUser.email}} ({{currentUserInformation.stilling}})</b></a></li>
-              <li><a ng-click="signOut()" href="/#/login">Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div class="jumbotron text-center">
-        <h1>AngularJS Auth</h1>
-        <p>Testing the authentication on AngularJS with Firebae.</p>
-        <p ng-if="currentUser.email"><i><small>The user is: {{currentUser.email}}</small></i></p>
-        <p ng-if="!currentUser.email"><i><small>Please log in</small></i></p>
       </div>
 
       <div class="row" ng-view>

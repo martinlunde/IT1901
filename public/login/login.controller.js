@@ -6,6 +6,6 @@
 
   loginCtrl.$inject = ["$scope", "firebase", "Auth"];
   function loginCtrl($scope, firebase, Auth) {
-
+    //
   }
 })();
