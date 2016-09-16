@@ -1,0 +1,101 @@
+{
+  "bookinger" : {
+    "booking_tilbud_id_123" : {
+      "artist" : "Linkin Park",
+      "avsender" : "maymay",
+      "dato" : 2134567,
+      "kostnad" : 250000,
+      "sjanger" : [ "Alternativ rock", "Metal" ],
+      "status" : "ubesvart"
+    },
+    "booking_tilbud_id_456" : {
+      "artist" : "James Vincent McMorrow",
+      "avsender" : "torepaasporet",
+      "dato" : 2334567,
+      "kostnad" : 1000000,
+      "sjanger" : [ "Folkemusikk" ],
+      "status" : "kontaktet"
+    },
+    "booking_tilbud_id_789" : {
+      "artist" : "Niki Minaj",
+      "avsender" : "maymay",
+      "dato" : 2334567,
+      "kommentar" : "Hun suger mann. My anaconda dont want her to play here.",
+      "kostnad" : 700000,
+      "sjanger" : [ "Hip hop", "Pop" ],
+      "status" : "avvist"
+    }
+  },
+  "brukere" : {
+    "xGaK932hp2Oxa0FmyFyCylm8e823" : {
+      "arbeidstider" : {
+        "konsert_id" : "konsertid9101"
+      },
+      "navn" : "Einar Moheim",
+      "stilling" : "lys",
+      "email" : "einarmoheim@gmail.com"
+    },
+    "LhmVH1DDMFQ8QPcT5yUUtHimjoW2" : {
+      "navn" : "Joachim Eide Eivindsen",
+      "stilling" : "bookingsjef",
+      "email" : "joachim.Eivindsen@gmail.com"
+    },
+    "6OKAlLrshreURU8A2pgth7f2VPh2" : {
+      "arbeidstider" : {
+        "konsert_id" : "konsertid9101"
+      },
+      "navn" : "Martin Lunde",
+      "stilling" : "lyd",
+      "email" : "martinlunde96@gmail.com"
+    },
+    "qUAXV4r2xPahh3BdbFIxwyljpIp1" : {
+      "navn" : "May Helen Robertsen Storvik",
+      "stilling" : "bookingansvarlig",
+      "email" : "mayhelenrs@gmail.com"
+    },
+    "COmtFDm5GvMJicpb6fF2C6UMSPz1" : {
+      "arbeidstider" : {
+        "konsert_id" : "konsertid9101"
+      },
+      "navn" : "Reso Ratnam",
+      "stilling" : "lys",
+      "email" : "reso.ratnam@gmail.com"
+    },
+    "EInnjhs8OBNiVa5E1IYCInxWTsb2" : {
+      "navn" : "Torkil Svanes Vatne",
+      "stilling" : "arrangør",
+      "email" : "torkil95@gmail.com"
+    },
+    "grYpz1hGOcREhdqxtg2InD5Xyqk1" : {
+      "navn" : "Tore Fotland",
+      "stilling" : "bookingansvarlig",
+      "email" : "torefotland@gmail.com"
+    }
+  },
+  "konserter" : {
+    "konsertid123" : {
+      "artist" : "Band of Horses",
+      "dato" : 234567890,
+      "kostnad" : 100000,
+      "scene" : "Storsalen",
+      "sjanger" : [ "Indie rock" ]
+    },
+    "konsertid456" : {
+      "artist" : "Ole Ivars",
+      "dato" : 234567890,
+      "kostnad" : 40000,
+      "scene" : "Storsalen",
+      "sjanger" : [ "Folkemusikk" ]
+    }
+  },
+  "konsertrapporter" : {
+    "konsertid123" : {
+      "okonomisk_resultat" : 180000,
+      "publikumstall" : 450
+    },
+    "konsertid456" : {
+      "okonomisk_resultat" : 24000,
+      "publikumstall" : 120
+    }
+  }
+}

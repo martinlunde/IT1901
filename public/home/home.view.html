@@ -1,0 +1,11 @@
+<div class="col-md-12">
+  <h1>This is the home page</h1>
+  <ul>
+    <li ng-repeat="konsert in firebaseDb.konserter">
+      <p>Artist: {{konsert.artist}}</p>
+      <p>Dato: {{konsert.dato}}</p>
+      <p>Scene: {{konsert.scene}}</p>
+      <button ng-hide="currentUserInformation.stilling != 'arrangør'">Info</button>
+    </li>
+  </ul>
+</div>

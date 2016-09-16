@@ -1,0 +1,64 @@
+body {
+  font-family: "futura-pt", "Lato", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #a03033;
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#top-bar {
+  background-color: #111;
+  overflow: hidden;
+  color: white;
+  height: 30px;
+}
+@media screen and (min-width: 481px) {
+  #top-bar #banner-logo {
+    float: left;
+    height: 15px;
+    width: 180px;
+    margin-top: 8.25px;
+    background-image: url(../assets/img/samfundetlogo_hvit.png);
+    background-repeat: no-repeat;
+    background-size: 180px;
+  }
+}
+#top-bar #session-status {
+  float: right;
+  margin-top: 9px;
+  font-weight: bold;
+  font-size: 0.7em;
+}
+#top-bar #session-status a {
+  color: white;
+  margin-left: 10px;
+}
+#header {
+  margin: 10px 0;
+}
+#header .samfundet-icon {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin: 5px auto;
+  background-image: url(../assets/img/samfundet_128.png);
+  background-repeat: no-repeat;
+  background-size: 50px;
+}
+@media screen and (min-width: 769px) {
+  #header .samfundet-icon {
+    height: 60px;
+    width: 60px;
+    background-size: 60px;
+    margin: 0 auto;
+    background-position: center;
+  }
+}

@@ -1,0 +1,61 @@
+.button-variant(@color; @background; @border) {
+	color: @color;
+	background-color: @background;
+	border-color: @border;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open .dropdown-toggle& {
+		color: @color;
+		background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+	}
+	&:active,
+	&.active,
+	.open .dropdown-toggle& {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background-color: @background;
+			border-color: @border;
+		}
+	}
+
+	.badge {
+		color: @background;
+		background-color: @color;
+	}
+}
+
+.transition-all() {
+		-webkit-transition: all .3s ease; /* Safari and Chrome */
+		-moz-transition: all .3s ease; /* Firefox */
+		-ms-transition: all .3s ease; /* IE 9 */
+		-o-transition: all .3s ease; /* Opera */
+		transition: all .3s ease;
+}
+
+.placeholder(@color){
+
+	input::-moz-placeholder,
+	textarea::-moz-placeholder {
+		color: @color !important;
+	}
+	input:-ms-input-placeholder,
+	textarea:-ms-input-placeholder {
+		color: @color !important;
+	}
+	input::-webkit-input-placeholder,
+	textarea::-webkit-input-placeholder {
+		color: @color !important;
+	}
+}
