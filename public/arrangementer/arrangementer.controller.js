@@ -2,11 +2,11 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("homeCtrl", homeCtrl);
+  .controller("arrangementerCtrl", arrangementerCtrl);
 
-  homeCtrl.$inject = ["$scope", "FirebaseService"];
-  function homeCtrl($scope, FirebaseService) {
-    $scope.test = "This is a scope variable for HOMEPAGE";
+  arrangementerCtrl.$inject = ["$scope", "FirebaseService"];
+  function arrangementerCtrl($scope, FirebaseService) {
+    $scope.test = "This is a scope variable for arrangementerPAGE";
     $scope.firebaseDb = {};
 
     FirebaseService.getDb(function(response) {

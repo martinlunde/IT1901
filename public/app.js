@@ -21,9 +21,9 @@
 
       /*-- routeProvider --*/
       $routeProvider.when("/", {
-        templateUrl : "/home/home.view.html",
-        controller : "homeCtrl",
-        controllerAs : "homeController",
+        templateUrl : "/arrangementer/arrangementer.view.html",
+        controller : "arrangementerCtrl",
+        controllerAs : "arrangementerController",
         resolve: {
           // controller will not be loaded until $waitForSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -97,7 +97,7 @@
     function run($rootScope, $location, Auth) {
       $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
         // We can catch the error thrown when the $requireSignIn promise is rejected
-        // and redirect the user back to the home page
+        // and redirect the user back to the arrangementer page
         if (error === "AUTH_REQUIRED") {
           $location.path("/login");
         }
