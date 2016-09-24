@@ -1,100 +1,110 @@
 {
   "bookinger" : {
-    "booking_tilbud_id_123" : {
+    "booking_id_123" : {
       "artist" : "Linkin Park",
-      "avsender" : "maymay",
+      "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
       "dato" : 2134567,
       "kostnad" : 250000,
+      "billettpris": 300,
+      "scene" : "Storsalen",
       "sjanger" : [ "Alternativ rock", "Metal" ],
-      "status" : "ubesvart"
+      "status" : "ubesvart",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
-    "booking_tilbud_id_456" : {
-      "artist" : "James Vincent McMorrow",
-      "avsender" : "torepaasporet",
-      "dato" : 2334567,
-      "kostnad" : 1000000,
-      "sjanger" : [ "Folkemusikk" ],
-      "status" : "kontaktet"
+    "booking_id_456" : {
+      "artist" : "Klovner i Kamp",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : 2134567,
+      "kostnad" : 40000,
+      "billettpris": 150,
+      "scene" : "Storsalen",
+      "sjanger" : [ "Pop", "Rap", "Norsk"],
+      "status" : "avvist_av_bookingsjef",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
-    "booking_tilbud_id_789" : {
-      "artist" : "Niki Minaj",
-      "avsender" : "maymay",
-      "dato" : 2334567,
-      "kommentar" : "Hun suger mann. My anaconda dont want her to play here.",
-      "kostnad" : 700000,
-      "sjanger" : [ "Hip hop", "Pop" ],
-      "status" : "avvist"
+    "booking_id_353" : {
+      "artist" : "Karpe Diem",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : 2134567,
+      "kostnad" : 80000,
+      "billettpris": 200,
+      "scene" : "Storsalen",
+      "sjanger" : [ "Pop", "Rap", "Norsk"],
+      "status" : "godkjent_av_bookingsjef",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_411" : {
+      "artist" : "The Rolling Stones",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : 2134567,
+      "kostnad" : 500000,
+      "billettpris": 500,
+      "scene" : "Klubben",
+      "sjanger" : [ "Rock", "Klassisk Rock"],
+      "status" : "avvist_av_manager",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1", "xGaK932hp2Oxa0FmyFyCylm8e823"]
+    },
+    "booking_id_987" : {
+      "artist" : "Bare Egil Band",
+      "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
+      "dato" : 2134567,
+      "kostnad" : 10000,
+      "billettpris": 100,
+      "scene" : "Edgar",
+      "sjanger" : [ "Folk", "Norsk"],
+      "status" : "aktiv",
+      "teknikere" : ["xGaK932hp2Oxa0FmyFyCylm8e823"]
     }
   },
   "brukere" : {
-    "xGaK932hp2Oxa0FmyFyCylm8e823" : {
-      "arbeidstider" : {
-        "konsert_id" : "konsertid9101"
-      },
-      "navn" : "Einar Moheim",
-      "stilling" : "lys",
-      "email" : "einarmoheim@gmail.com"
-    },
-    "LhmVH1DDMFQ8QPcT5yUUtHimjoW2" : {
-      "navn" : "Joachim Eide Eivindsen",
-      "stilling" : "bookingsjef",
-      "email" : "joachim.Eivindsen@gmail.com"
-    },
     "6OKAlLrshreURU8A2pgth7f2VPh2" : {
-      "arbeidstider" : {
-        "konsert_id" : "konsertid9101"
-      },
+      "arbeidstider" : ["booking_id_123"],
+      "email" : "martinlunde96@gmail.com",
       "navn" : "Martin Lunde",
-      "stilling" : "lyd",
-      "email" : "martinlunde96@gmail.com"
-    },
-    "qUAXV4r2xPahh3BdbFIxwyljpIp1" : {
-      "navn" : "May Helen Robertsen Storvik",
-      "stilling" : "bookingansvarlig",
-      "email" : "mayhelenrs@gmail.com"
+      "stilling" : "lyd"
     },
     "COmtFDm5GvMJicpb6fF2C6UMSPz1" : {
-      "arbeidstider" : {
-        "konsert_id" : "konsertid9101"
-      },
-      "navn" : "Reso Ratnam",
-      "stilling" : "lys",
-      "email" : "reso.ratnam@gmail.com"
+      "arbeidstider" : ["booking_id_123"],
+      "email" : "reso.ratnam@gmail.com",
+      "navn" : "Reso Ratna",
+      "stilling" : "lys"
     },
     "EInnjhs8OBNiVa5E1IYCInxWTsb2" : {
+      "email" : "torkil95@gmail.com",
       "navn" : "Torkil Svanes Vatne",
-      "stilling" : "arrangør",
-      "email" : "torkil95@gmail.com"
+      "stilling" : "arrangør"
+    },
+    "LhmVH1DDMFQ8QPcT5yUUtHimjoW2" : {
+      "email" : "joachim.Eivindsen@gmail.com",
+      "navn" : "Joachim Eide Eivindsen",
+      "stilling" : "bookingsjef"
     },
     "grYpz1hGOcREhdqxtg2InD5Xyqk1" : {
+      "email" : "torefotland@gmail.com",
       "navn" : "Tore Fotland",
-      "stilling" : "bookingansvarlig",
-      "email" : "torefotland@gmail.com"
-    }
-  },
-  "konserter" : {
-    "konsertid123" : {
-      "artist" : "Band of Horses",
-      "dato" : 234567890,
-      "kostnad" : 100000,
-      "scene" : "Storsalen",
-      "sjanger" : [ "Indie rock" ]
+      "stilling" : "bookingansvarlig"
     },
-    "konsertid456" : {
-      "artist" : "Ole Ivars",
-      "dato" : 234567890,
-      "kostnad" : 40000,
-      "scene" : "Storsalen",
-      "sjanger" : [ "Folkemusikk" ]
+    "qUAXV4r2xPahh3BdbFIxwyljpIp1" : {
+      "email" : "mayhelenrs@gmail.com",
+      "navn" : "May Helen Robertsen Storvik",
+      "stilling" : "bookingansvarlig"
+    },
+    "xGaK932hp2Oxa0FmyFyCylm8e823" : {
+      "arbeidstider" : ["booking_id_456"],
+      "email" : "einarmoheim@gmail.com",
+      "navn" : "Einar Moheim",
+      "stilling" : "lys"
     }
   },
   "konsertrapporter" : {
-    "konsertid123" : {
-      "okonomisk_resultat" : 180000,
+    "booking_id_123" : {
+      "profitt" : 180000,
+      "tilleggskostnader" : 3450,
       "publikumstall" : 450
     },
-    "konsertid456" : {
-      "okonomisk_resultat" : 24000,
+    "booking_id_456" : {
+      "profitt" : 24000,
+      "tilleggskostnader" : 2850,
       "publikumstall" : 120
     }
   }
