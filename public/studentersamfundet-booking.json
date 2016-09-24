@@ -14,7 +14,8 @@
     "booking_id_456" : {
       "artist" : "Klovner i Kamp",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 2134567,
+      "dato" : "2016-10-06",
+      "tid" : "20.00",
       "kostnad" : 40000,
       "billettpris": 150,
       "scene" : "Storsalen",
@@ -25,7 +26,8 @@
     "booking_id_353" : {
       "artist" : "Karpe Diem",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 2134567,
+      "dato" : "2016-10-24",
+      "tid" : "22.00",
       "kostnad" : 80000,
       "billettpris": 200,
       "scene" : "Storsalen",
@@ -36,7 +38,8 @@
     "booking_id_411" : {
       "artist" : "The Rolling Stones",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 2134567,
+      "dato" : "2016-11-12",
+      "tid" : "19.00",
       "kostnad" : 500000,
       "billettpris": 500,
       "scene" : "Klubben",
@@ -47,7 +50,8 @@
     "booking_id_987" : {
       "artist" : "Bare Egil Band",
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
-      "dato" : 2134567,
+      "dato" : "2016-11-06",
+      "tid" : "20.00",
       "kostnad" : 10000,
       "billettpris": 100,
       "scene" : "Edgar",
