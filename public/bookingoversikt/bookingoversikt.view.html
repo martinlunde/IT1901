@@ -1,12 +1,34 @@
-<div class="col-md-12">
-  <h1>Create a new booking!</h1>
+<div class="col-md-12 view-container" id="arrangementer-view">
+  <h1>Bookinger:</h1>
+  <select ng-model="valgtStatus">
+    <option value="velg">Velg status</option>
+    <option value="ubesvart">Ubesvart</option>
+    <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
+    <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
+    <option value="avvist_av_manager">Avvist av manager</option>
+    <option value="aktiv">Aktiv</option>
+  </select>
+  <select ng-model="valgtScene">
+    <option value="velg">Velg scene</option>
+    <option value="Edgar">Edgar</option>
+    <option value="Klubben">Klubben</option>
+    <option value="Knaus">Knaus</option>
+    <option value="Storsalen">Storsalen</option>
+  </select>
+    <h2 ng-show="(valgtScene = 'velg')">Søkeresultat</h2>
   <ul>
-    <li ng-repeat="booking in bookings">
-      <p>Artist: {{booking.artist}}</p>
-      <p>Dato: {{booking.dato}}</p>
-      <p>Scene: {{booking.avsender}}</p>
-      <button>Godkjenn</button>
-      <button>Avvis</button>
+    <li ng-repeat="(key, value) in filterFunction(sorterteBookings)">
+      <h2>{{key}}</h2>
+      <ul>
+        <li ng-repeat="konsert in value">
+          <p>Artist: {{konsert.artist}}</p>
+          <p>Scene: {{konsert.scene}}</p>
+          <p>Tid: {{konsert.tid}}</p>
+          <p>Billettpris: {{konsert.billettpris}}</p>
+          <p>Status: {{konsert.status}}</p>
+          <br>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>
