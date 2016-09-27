@@ -3,7 +3,8 @@
     "booking_id_123" : {
       "artist" : "Linkin Park",
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
-      "dato" : 2134567,
+      "dato" : "2016-09-29",
+      "tid" : "22.00",        
       "kostnad" : 250000,
       "billettpris": 300,
       "scene" : "Storsalen",
@@ -33,7 +34,7 @@
       "scene" : "Storsalen",
       "sjanger" : [ "Pop", "Rap", "Norsk"],
       "status" : "godkjent_av_bookingsjef",
-      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1", "xGaK932hp2Oxa0FmyFyCylm8e823"]
     },
     "booking_id_411" : {
       "artist" : "The Rolling Stones",
@@ -57,6 +58,90 @@
       "scene" : "Edgar",
       "sjanger" : [ "Folk", "Norsk"],
       "status" : "aktiv",
+      "teknikere" : ["xGaK932hp2Oxa0FmyFyCylm8e823"]
+    },
+    "booking_id_69" : {
+      "artist" : "Miley Cyrus",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2016-11-11",
+      "tid" : "19.00",
+      "kostnad" : 400000,
+      "billettpris": 400,
+      "scene" : "Storsalen",
+      "sjanger" : [ "Pop", "Rap", "American"],
+      "status" : "godkjent_av_bookingsjef",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_111" : {
+      "artist" : "Kaveh",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2016-10-07",
+      "tid" : "19.30",
+      "kostnad" : 20000,
+      "billettpris": 100,
+      "scene" : "Klubben",
+      "sjanger" : [ "Pop", "Rap", "Norsk"],
+      "status" : "ubesvart",
+      "teknikere" : ["xGaK932hp2Oxa0FmyFyCylm8e823"]
+    },
+    "booking_id_222" : {
+      "artist" : "Jaa9",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2017-01-20",
+      "tid" : "22.00",
+      "kostnad" : 25000,
+      "billettpris": 150,
+      "scene" : "Knaus",
+      "sjanger" : [ "Pop", "Rap", "Norsk"],
+      "status" : "aktiv",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_333" : {
+      "artist" : "R3hab",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2012-02-07",
+      "tid" : "21.00",
+      "kostnad" : 20000,
+      "billettpris": 100,
+      "scene" : "Knaus",
+      "sjanger" : [ "EDM", "House", "Electro", "Techno"],
+      "status" : "aktiv",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_444" : {
+      "artist" : "Pink Floyd",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2016-11-07",
+      "tid" : "19.00",
+      "kostnad" : 40000,
+      "billettpris": 200,
+      "scene" : "Edgar",
+      "sjanger" : [ "Rock"],
+      "status" : "avvist_av_manager",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_555" : {
+      "artist" : "Adele",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2017-04-10",
+      "tid" : "19.00",
+      "kostnad" : 4000000,
+      "billettpris": 1000,
+      "scene" : "Knaus",
+      "sjanger" : [ "Pop", "Jazz", "Soul"],
+      "status" : "avvist_av_bookingsjef",
+      "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
+    },
+    "booking_id_666" : {
+      "artist" : "Staysman & Lazz",
+      "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
+      "dato" : "2016-12-20",
+      "tid" : "20.00",
+      "kostnad" : 20000,
+      "billettpris": 50,
+      "scene" : "Klubben",
+      "sjanger" : [ "Pop", "Party"],
+      "status" : "godkjent_av_bookingsjef",
       "teknikere" : ["xGaK932hp2Oxa0FmyFyCylm8e823"]
     }
   },
