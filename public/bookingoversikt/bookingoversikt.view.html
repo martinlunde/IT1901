@@ -1,5 +1,7 @@
 <div class="col-md-12 view-container" id="arrangementer-view">
   <h1>Bookinger:</h1>
+  <input id="search" name="search" placeholder="Søk i bookinger" type="search" ng-model="searchingString" ng-change="filterFunction()">
+  <br><br>
   <select ng-model="valgtStatus" ng-change="filterFunction(sortertListe)">
     <option value="velg">Velg status</option>
     <option value="aktiv">Aktiv</option>

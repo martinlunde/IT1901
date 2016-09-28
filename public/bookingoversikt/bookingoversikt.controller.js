@@ -16,7 +16,7 @@
       for (var dato in bookings) {
         var filtrertDato = new Object;
         angular.forEach(bookings[dato], function(value,key) {
-          if((value.status == $scope.valgtStatus || $scope.valgtStatus == "velg") && (value.scene == $scope.valgtScene || $scope.valgtScene == "velg")) {
+          if(((($scope.searchingString == undefined) || value.artist.toLowerCase().indexOf($scope.searchingString.toLowerCase())) != -1) && (value.status == $scope.valgtStatus || $scope.valgtStatus == "velg") && (value.scene == $scope.valgtScene || $scope.valgtScene == "velg")) {
             filtrertDato[key] = value;
           }
         });
@@ -24,8 +24,6 @@
           filtrertList[dato] = filtrertDato;
         }
       }
-      //console.log("Oppdatert");
-      //console.log(bookings);
       $scope.filtrertListe = filtrertList;
     }
 
