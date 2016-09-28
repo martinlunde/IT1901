@@ -116,6 +116,7 @@
 
       $scope.currentUser = firebase.auth().currentUser;
       $scope.currentUserInformation = null;
+      $scope.mainDatabase = new Object();
 
         /*-- onAuthStateChanged --*/
         firebase.auth().onAuthStateChanged(function(user) {
@@ -162,6 +163,29 @@
           });
         });
       }
+
+      // Legger til lytter på bookings
+      firebase.database().ref("/bookinger/").orderByChild("dato").on("value", function(snapshot) {
+        var sorterteBookings = new Object();
+        snapshot.forEach(function (child) {
+          var bookingID = child.key;
+          var bookingValue = child.val();
+          if(!(bookingValue.dato in sorterteBookings)) {
+            sorterteBookings[bookingValue.dato] = new Object();
+            sorterteBookings[bookingValue.dato][bookingID] = bookingValue;
+          }
+          else {
+            sorterteBookings[bookingValue.dato][bookingID] = bookingValue;
+          }
+         });
+
+        $scope.mainBookinger = sorterteBookings;
+      });
+
+
+
+
+
 
 
     }

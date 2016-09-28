@@ -48,8 +48,7 @@
           <div class="col-md-5">
             <nav class="nav-right">
               <ul>
-                <li ng-show="(currentUser != null)"><a href="/#/profile">Profile</a></li>
-                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/bookingoversikt">Bookingoversikt</a></li>
+                <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingsjef') || (currentUserInformation.stilling == 'bookingansvarlig'))"><a href="/#/bookingoversikt">Bookingoversikt</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/new-booking">+ Ny booking</a></li>
               </ul>
             </nav>

@@ -7,28 +7,11 @@
   bookingoversiktCtrl.$inject = ["$scope", "FirebaseService"];
   function bookingoversiktCtrl($scope, FirebaseService) {
 
-    FirebaseService.getBookings(function(response) {
-      $scope.$apply(function() {
-        var bookings = response.val();
-        var sorterteBookings = new Object();
-          for (var bookingID in bookings) {
-            if (bookings.hasOwnProperty(bookingID)) {
-              if(!(bookings[bookingID].dato in sorterteBookings)) {
-                sorterteBookings[bookings[bookingID].dato] = new Object();
-                sorterteBookings[bookings[bookingID].dato][bookingID] = bookings[bookingID];
-              } else {
-                sorterteBookings[bookings[bookingID].dato][bookingID] = bookings[bookingID];
-              }
-            }
-        }
-        console.log(sorterteBookings);
-        $scope.sorterteBookings = sorterteBookings;
-        $scope.valgtStatus = "velg";
-        $scope.valgtScene = "velg";
-      });
-    });
+    $scope.valgtStatus = "velg";
+    $scope.valgtScene = "velg";
 
-    $scope.filterFunction = function(bookings) {
+    $scope.filterFunction = function() {
+      var bookings = $scope.mainBookinger;
       var filtrertList = new Object();
       for (var dato in bookings) {
         var filtrertDato = new Object;
@@ -41,9 +24,39 @@
           filtrertList[dato] = filtrertDato;
         }
       }
-      return filtrertList;
+      //console.log("Oppdatert");
+      //console.log(bookings);
+      $scope.filtrertListe = filtrertList;
     }
 
+
+    $scope.updateBooking = function (bookingID, nyStatus) {
+      firebase.database().ref().child('bookinger').child(bookingID).update({
+        status : nyStatus
+      });
+    };
+
+
+    $scope.filterFunction();
+    $scope.$watch('mainBookinger', function() {
+      $scope.filterFunction();
+    });
+
+
+  $scope.updateBookingStatus = function (bookingID, nyStatus) {
+        firebase.database().ref().child('bookinger').child(bookingID).update(
+          { status : nyStatus }
+        );
+      };
+
+  $scope.avvisBooking = function (key, kommentar) {
+    if($scope.currentUserInformation.stilling == 'bookingsjef') {
+      $scope.updateBookingStatus(key, 'avvist_av_bookingsjef');
+    } else if($scope.currentUserInformation.stilling == 'bookingansvarlig') {
+      $scope.updateBookingStatus(key, 'avvist_av_manager');
+    }
+    firebase.database().ref("/bookinger/" + key + "/kommentar_for_avvisning").set(kommentar);
   }
 
+  }
 })();

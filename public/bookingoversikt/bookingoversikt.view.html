@@ -1,34 +1,54 @@
 <div class="col-md-12 view-container" id="arrangementer-view">
   <h1>Bookinger:</h1>
-  <select ng-model="valgtStatus">
+  <select ng-model="valgtStatus" ng-change="filterFunction(sortertListe)">
     <option value="velg">Velg status</option>
-    <option value="ubesvart">Ubesvart</option>
-    <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
-    <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
-    <option value="avvist_av_manager">Avvist av manager</option>
     <option value="aktiv">Aktiv</option>
+    <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
+    <option value="avvist_av_manager">Avvist av manager</option>
+    <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
+    <option value="ubesvart">Ubesvart</option>
   </select>
-  <select ng-model="valgtScene">
+  <select ng-model="valgtScene" ng-change="filterFunction()">
     <option value="velg">Velg scene</option>
     <option value="Edgar">Edgar</option>
     <option value="Klubben">Klubben</option>
     <option value="Knaus">Knaus</option>
     <option value="Storsalen">Storsalen</option>
   </select>
-    <h2 ng-show="(valgtScene = 'velg')">Søkeresultat</h2>
+    <h2 ng-hide="($scope.valgtScene == 'velg')">Søkeresultat</h2>
   <ul>
-    <li ng-repeat="(key, value) in filterFunction(sorterteBookings)">
+    <li ng-repeat="(key, value) in filtrertListe">
       <h2>{{key}}</h2>
       <ul>
-        <li ng-repeat="konsert in value">
-          <p>Artist: {{konsert.artist}}</p>
-          <p>Scene: {{konsert.scene}}</p>
-          <p>Tid: {{konsert.tid}}</p>
-          <p>Billettpris: {{konsert.billettpris}}</p>
-          <p>Status: {{konsert.status}}</p>
+        <li ng-repeat="(key, konsert) in value" ng-init="showAvvisForm = false">
+          <p><b>Artist:</b> {{konsert.artist}}</p>
+          <p><b>Scene:</b> {{konsert.scene}}</p>
+          <p><b>Tid:</b> {{konsert.tid}}</p>
+          <p><b>Billettpris:</b> {{konsert.billettpris}}</p>
+          <p><b>Status:</b> {{konsert.status}}</p>
+          <p ng-show="(konsert.status == 'avvist_av_bookingsjef') || (konsert.status == 'avvist_av_manager')"><b>Kommentar for avvisning:</b> {{konsert.kommentar_for_avvisning}}</p>
+          <button ng-show="(konsert.status == 'ubesvart') && (currentUserInformation.stilling == 'bookingsjef')" ng-click="updateBookingStatus(key, 'godkjent_av_bookingsjef'); filterFunction()">Godkjenn</button>
+          <button ng-show="(konsert.status == 'ubesvart') && (currentUserInformation.stilling == 'bookingsjef')" ng-click="showAvvisForm = !showAvvisForm">Avvis</button>
+          <button ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="updateBookingStatus(key, 'aktiv'); filterFunction()">Legg til arrangemnent</button>
+          <button ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="showAvvisForm = !showAvvisForm">Avvis</button>
+          <form name="avvisForm" ng-show="showAvvisForm == true">
+            <h3>Fyll ut hvorfor ikke:</h3>
+            <div class="form-group" show-errors>
+              <label>Kommentar: <input type="text" class="form-control" name="kommentar" ng-model="avvisning.kommentar" required /></label>
+            </div>
+            <button ng-click="avvisBooking(key, avvisning.kommentar); filterFunction()" type="submit" ng-disabled="avvisForm.$invalid" class="btn btn-primary">Send avvisning</button>
+          </form>
           <br>
         </li>
       </ul>
     </li>
   </ul>
 </div>
+
+<form name="bookingForm" ng-show="avvistBooking == true">
+    <h1>Fyll ut hvorfor ikke:</h1>
+    <div class="form-group" show-errors>
+      <label>Artist: <input type="text" class="form-control" name="artist" ng-model="booking.artist" required /></label>
+    </div>
+    <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-primary">Send</button>
+  </form>
