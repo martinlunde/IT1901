@@ -3,8 +3,13 @@
     "booking_id_123" : {
       "artist" : "Linkin Park",
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
+<<<<<<< HEAD
       "dato" : "2016-09-29",
       "tid" : "22.00",        
+=======
+      "dato" : "2016-10-18",
+      "tid" : "22.00",
+>>>>>>> bookingoversikt_utkast
       "kostnad" : 250000,
       "billettpris": 300,
       "scene" : "Storsalen",
@@ -27,7 +32,7 @@
     "booking_id_353" : {
       "artist" : "Karpe Diem",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-10-24",
+      "dato" : "2016-11-12",
       "tid" : "22.00",
       "kostnad" : 80000,
       "billettpris": 200,
