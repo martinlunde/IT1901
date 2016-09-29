@@ -27,34 +27,30 @@
       $scope.filtrertListe = filtrertList;
     }
 
-
     $scope.updateBooking = function (bookingID, nyStatus) {
       firebase.database().ref().child('bookinger').child(bookingID).update({
         status : nyStatus
       });
     };
 
-
-    $scope.filterFunction();
     $scope.$watch('mainBookinger', function() {
       $scope.filterFunction();
     });
 
+    $scope.updateBookingStatus = function (bookingID, nyStatus) {
+          firebase.database().ref().child('bookinger').child(bookingID).update(
+            { status : nyStatus }
+          );
+        };
 
-  $scope.updateBookingStatus = function (bookingID, nyStatus) {
-        firebase.database().ref().child('bookinger').child(bookingID).update(
-          { status : nyStatus }
-        );
-      };
-
-  $scope.avvisBooking = function (key, kommentar) {
-    if($scope.currentUserInformation.stilling == 'bookingsjef') {
-      $scope.updateBookingStatus(key, 'avvist_av_bookingsjef');
-    } else if($scope.currentUserInformation.stilling == 'bookingansvarlig') {
-      $scope.updateBookingStatus(key, 'avvist_av_manager');
+    $scope.avvisBooking = function (key, kommentar) {
+      if($scope.currentUserInformation.stilling == 'bookingsjef') {
+        $scope.updateBookingStatus(key, 'avvist_av_bookingsjef');
+      } else if($scope.currentUserInformation.stilling == 'bookingansvarlig') {
+        $scope.updateBookingStatus(key, 'avvist_av_manager');
+      }
+      firebase.database().ref("/bookinger/" + key + "/kommentar_for_avvisning").set(kommentar);
     }
-    firebase.database().ref("/bookinger/" + key + "/kommentar_for_avvisning").set(kommentar);
-  }
 
   }
 })();

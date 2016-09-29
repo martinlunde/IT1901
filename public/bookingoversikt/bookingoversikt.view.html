@@ -2,7 +2,7 @@
   <h1>Bookinger:</h1>
   <input id="search" name="search" placeholder="Søk i bookinger" type="search" ng-model="searchingString" ng-change="filterFunction()">
   <br><br>
-  <select ng-model="valgtStatus" ng-change="filterFunction(sortertListe)">
+  <select ng-model="valgtStatus" ng-change="filterFunction()">
     <option value="velg">Velg status</option>
     <option value="aktiv">Aktiv</option>
     <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
@@ -17,7 +17,7 @@
     <option value="Knaus">Knaus</option>
     <option value="Storsalen">Storsalen</option>
   </select>
-    <h2 ng-hide="($scope.valgtScene == 'velg')">Søkeresultat</h2>
+    <h2 ng-hide="((valgtScene == 'velg') && (valgtStatus == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
   <ul>
     <li ng-repeat="(key, value) in filtrertListe">
       <h2>{{key}}</h2>
