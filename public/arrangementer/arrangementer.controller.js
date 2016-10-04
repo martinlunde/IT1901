@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("arrangementerCtrl", arrangementerCtrl);
+  .controller("rapportoversiktCtrl", rapportoversiktCtrl);
 
-  arrangementerCtrl.$inject = ["$scope", "FirebaseService"];
-  function arrangementerCtrl($scope, FirebaseService) {
+  rapportoversiktCtrl.$inject = ["$scope", "FirebaseService"];
+  function rapportoversiktCtrl($scope, FirebaseService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -52,13 +52,5 @@
       var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
       return dato;
     }
-
-
-
-
-
-
-
-
   }
 })();
