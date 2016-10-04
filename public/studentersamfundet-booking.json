@@ -39,7 +39,7 @@
     "booking_id_411" : {
       "artist" : "The Rolling Stones",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20161112,
+      "dato" : 20161113,
       "tid" : "19.00",
       "kostnad" : 500000,
       "billettpris": 500,
@@ -63,7 +63,7 @@
     "booking_id_69" : {
       "artist" : "Miley Cyrus",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20161111",
+      "dato" : 20161111,
       "tid" : "19.00",
       "kostnad" : 400000,
       "billettpris": 400,
@@ -231,7 +231,7 @@
 	"booking_id_510" : {
       "artist" : "Bruno Mars",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20161111,
+      "dato" : 20161109,
       "tid" : "21.15",
       "kostnad" : 120000,
       "billettpris": 275,
@@ -243,7 +243,7 @@
 	"booking_id_511" : {
       "artist" : "Oral-Bee",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20170401,
+      "dato" : 20170408,
       "tid" : "22.00",
       "kostnad" : 15000,
       "billettpris": 190,
@@ -351,7 +351,7 @@
 	"booking_id_520" : {
       "artist" : "Deadmau5",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20170401,
+      "dato" : 20170407,
       "tid" : "21.00",
       "kostnad" : 150000,
       "billettpris": 240,
@@ -399,7 +399,7 @@
 	"booking_id_524" : {
       "artist" : "J.A.C.K",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20170401,
+      "dato" : 20170724,
       "tid" : "21.00",
       "kostnad" : 60000,
       "billettpris": 190,
@@ -435,7 +435,7 @@
 	"booking_id_527" : {
       "artist" : "Snoop Dogg after party",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : 20170203,
+      "dato" : 20170204,
       "tid" : "23.30",
       "kostnad" : 5000,
       "billettpris": 245,
