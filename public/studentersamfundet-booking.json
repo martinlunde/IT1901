@@ -142,7 +142,7 @@
       "kostnad" : 60000,
       "billettpris": 190,
       "scene" : "Storsalen",
-      "sjanger" : [ "Electronica", "French"],
+      "sjanger" : [ "Elektronica", "French"],
       "status" : "avvist_av_bookingsjef",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -175,7 +175,7 @@
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
       "dato" : "2017-05-10",
       "tid" : "19.00",
-      "kostnad" : 50000,
+      "kostnad" : 500000,
       "billettpris": 190,
       "scene" : "Edgar",
       "sjanger" : [ "Funk", "Soul","Disko"],
@@ -238,7 +238,7 @@
       "kostnad" : 120000,
       "billettpris": 275,
       "scene" : "Klubben",
-      "sjanger" : [ "Pop", "RnB"],
+      "sjanger" : [ "Pop", "R&B"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -274,7 +274,7 @@
       "kostnad" : 140000,
       "billettpris": 270,
       "scene" : "Klubben",
-      "sjanger" : [ "Electronica", "Party"],
+      "sjanger" : [ "Elektronica", "Party"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -322,7 +322,7 @@
       "kostnad" : 50000,
       "billettpris": 190,
       "scene" : "Storsalen",
-      "sjanger" : [ "Electronica", "Norsk"],
+      "sjanger" : [ "Elektronica", "Norsk"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -358,7 +358,7 @@
       "kostnad" : 150000,
       "billettpris": 240,
       "scene" : "Klubben",
-      "sjanger" : [ "Electronica"],
+      "sjanger" : [ "Elektronica"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -382,7 +382,7 @@
       "kostnad" : 40000,
       "billettpris": 260,
       "scene" : "Klubben",
-      "sjanger" : [ "Drum'n'base", "Electronica"],
+      "sjanger" : [ "Drum&bass", "Elektronica"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -394,7 +394,7 @@
       "kostnad" : 10000,
       "billettpris": 190,
       "scene" : "Klubben",
-      "sjanger" : [ "Electronica", "Techno"],
+      "sjanger" : [ "Elektronica", "Techno"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -406,7 +406,7 @@
       "kostnad" : 60000,
       "billettpris": 190,
       "scene" : "Storsalen",
-      "sjanger" : [ "Electronica", "French"],
+      "sjanger" : [ "Elektronica", "French"],
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -418,7 +418,7 @@
       "kostnad" : 85000,
       "billettpris": 300,
       "scene" : "Storsalen",
-      "sjanger" : [ "Soul", "R'n'B"],
+      "sjanger" : [ "Soul", "R&B"],
       "status" : "godkjent_av_bookingsjef",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
@@ -478,7 +478,7 @@
       "kostnad" : 60000,
       "billettpris": 190,
       "scene" : "Storsalen",
-      "sjanger" : [ "Rnb", "USA"],
+      "sjanger" : [ "R&B", "USA"],
       "status" : "godkjent_av_bookingsjef",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
