@@ -5,8 +5,6 @@
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
       "dato" : "2016-09-29",
       "tid" : "22.00",        
-      "dato" : "2016-10-18",
-      "tid" : "22.00",
       "kostnad" : 250000,
       "billettpris": 300,
       "scene" : "Storsalen",
@@ -224,7 +222,7 @@
       "dato" : "2017-08-16",
       "tid" : "20.00",
       "kostnad" : 5000,
-      "billettpris": 000,
+      "billettpris": 100,
       "scene" : "Edgar",
       "sjanger" : [ "Orkester", "Symfoni","Norsk"],
       "status" : "avvist_av_bookingsjef",
@@ -338,7 +336,7 @@
       "status" : "aktiv",
       "teknikere" : ["COmtFDm5GvMJicpb6fF2C6UMSPz1"]
     },
-	"booking_id_519" : {
+	"booking_id_531" : {
       "artist" : "Smash Mouth",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
       "dato" : "2017-05-16",
