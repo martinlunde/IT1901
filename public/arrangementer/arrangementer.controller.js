@@ -53,7 +53,9 @@
       return dato;
     }
 
-
+    $scope.updateModal = function(konsert) {
+      $scope.modalInformation = konsert;
+    }
 
 
 

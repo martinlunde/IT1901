@@ -41,6 +41,7 @@
           <p><b>Billettpris:</b> {{konsert.billettpris}}</p>
           <p><b>Sjanger:</b> {{konsert.sjanger}}</p>
           <p><b>Status:</b> {{konsert.status}}</p>
+          <a ng-click="updateModal(konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-default">Oversikt</button></a>
           <br>
         </li>
       </ul>
@@ -48,3 +49,29 @@
   </ul>
 </div>
 </div>
+<div class="item-modal modal fade" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content" style="width:100%; height:101%;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="modal-body">
+                          <h2>INFORMASJON:</h2>
+                          <p><b>Artist:</b> {{modalInformation.artist}}</p>
+                          <p><b>Scene:</b> {{modalInformation.scene}}</p>
+                          <p><b>Tid:</b> {{modalInformation.tid}}</p>
+                          <p><b>Billettpris:</b> {{modalInformation.billettpris}}</p>
+                          <p><b>Sjanger:</b> {{modalInformation.sjanger}}</p>
+                          <p><b>Status:</b> {{modalInformation.status}}</p>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
