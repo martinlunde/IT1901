@@ -60,7 +60,14 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button ng-show="(currentUserInformation.stilling == 'bookingsjef')" ng-click="showAvvisForm = !showAvvisForm" class="btn btn-default">Avvis</button>
+                  <button ng-click="" type="submit" class="btn btn-primary">Godkjenn</button>
+                  <form name="avvisForm" ng-show="showAvvisForm == true">
+                    <h3>Fyll ut hvorfor ikke:</h3>
+                    <div class="form-group" show-errors>
+                      <label>Kommentar: <input type="text" class="form-control" name="kommentar" ng-model="avvisningRapport.kommentar" required /></label>
+                    </div>
+                  <button ng-click="" type="submit" ng-disabled="" class="btn btn-primary">Send avvisning</button>
                 </div>
 
               </div>
