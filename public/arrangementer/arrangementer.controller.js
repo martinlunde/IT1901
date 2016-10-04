@@ -49,7 +49,7 @@
 
     $scope.intToDateFunction = function(tall) {
       tall = String(tall);
-      var dato = new Date(tall.substring(0,4) + "." + tall.substring(4,6) + '.' + tall.substring(6,8));
+      var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
       return dato;
     }
 
