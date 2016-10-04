@@ -46,20 +46,6 @@
     	   	controllerAs:'loginController'
         });
 
-      $routeProvider.when("/profile", {
-        templateUrl : "profile/profile.view.html",
-        controller : "profileCtrl",
-        controllerAs : "profileController",
-        resolve: {
-          // controller will not be loaded until $waitForSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
-          "currentAuth": ["Auth", function(Auth) {
-            // $waitForSignIn returns a promise so the resolve waits for it to complete
-            return Auth.$requireSignIn();
-          }]
-        }
-      });
-
       $routeProvider.when("/new-booking", {
         templateUrl : "new-booking/new-booking.view.html",
         controller : "newBookingCtrl",
