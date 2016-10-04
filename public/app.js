@@ -210,6 +210,17 @@
         $scope.mainBookinger = sorterteBookings;
       });
 
+      //tester ut noe greier
+      firebase.database().ref("/konsertrapporter/").on("value", function(snapshot) {
+        var sorterteRapporter = new Object();
+        snapshot.forEach(function(child) {
+          var rapportID = child.key;
+          var rapportValue = child.val();
+            sorterteRapporter[rapportID] = rapportValue;
+        });
+
+        $scope.rapporter = sorterteRapporter
+      });
 
 
 
