@@ -3,7 +3,7 @@
     "booking_id_123" : {
       "artist" : "Linkin Park",
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
-      "dato" : "2016-09-29",
+      "dato" : 20160929,
       "tid" : "22.00",        
       "kostnad" : 250000,
       "billettpris": 300,
@@ -15,7 +15,7 @@
     "booking_id_456" : {
       "artist" : "Klovner i Kamp",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-10-06",
+      "dato" : 20160106,
       "tid" : "20.00",
       "kostnad" : 40000,
       "billettpris": 150,
@@ -27,7 +27,7 @@
     "booking_id_353" : {
       "artist" : "Karpe Diem",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-11-12",
+      "dato" : 20161112,
       "tid" : "22.00",
       "kostnad" : 80000,
       "billettpris": 200,
@@ -39,7 +39,7 @@
     "booking_id_411" : {
       "artist" : "The Rolling Stones",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-11-12",
+      "dato" : 20161112,
       "tid" : "19.00",
       "kostnad" : 500000,
       "billettpris": 500,
@@ -51,7 +51,7 @@
     "booking_id_987" : {
       "artist" : "Bare Egil Band",
       "bookingansvarlig" : "grYpz1hGOcREhdqxtg2InD5Xyqk1",
-      "dato" : "2016-11-06",
+      "dato" : 20161106,
       "tid" : "20.00",
       "kostnad" : 10000,
       "billettpris": 100,
@@ -63,7 +63,7 @@
     "booking_id_69" : {
       "artist" : "Miley Cyrus",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-11-11",
+      "dato" : 20161111",
       "tid" : "19.00",
       "kostnad" : 400000,
       "billettpris": 400,
@@ -75,7 +75,7 @@
     "booking_id_111" : {
       "artist" : "Kaveh",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-10-07",
+      "dato" : 20161007,
       "tid" : "19.30",
       "kostnad" : 20000,
       "billettpris": 100,
@@ -87,7 +87,7 @@
     "booking_id_222" : {
       "artist" : "Jaa9",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-01-20",
+      "dato" : 20170120,
       "tid" : "22.00",
       "kostnad" : 25000,
       "billettpris": 150,
@@ -99,7 +99,7 @@
     "booking_id_333" : {
       "artist" : "R3hab",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2012-02-07",
+      "dato" : 20120207,
       "tid" : "21.00",
       "kostnad" : 20000,
       "billettpris": 100,
@@ -111,7 +111,7 @@
     "booking_id_444" : {
       "artist" : "Pink Floyd",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-11-07",
+      "dato" : 20161107,
       "tid" : "19.00",
       "kostnad" : 40000,
       "billettpris": 200,
@@ -123,7 +123,7 @@
 	"booking_id_501" : {
       "artist" : "Kanye West",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-12-10",
+      "dato" : 20161210,
       "tid" : "21.00",
       "kostnad" : 1000000,
       "billettpris": 300,
@@ -135,7 +135,7 @@
 	"booking_id_502" : {
       "artist" : "Madeon",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-01",
+      "dato" : 20170401,
       "tid" : "21.00",
       "kostnad" : 60000,
       "billettpris": 190,
@@ -147,7 +147,7 @@
 	"booking_id_503" : {
       "artist" : "Violet Road",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-02-04",
+      "dato" : 20170204,
       "tid" : "20.30",
       "kostnad" : 20000,
       "billettpris": 140,
@@ -159,7 +159,7 @@
 	"booking_id_504" : {
       "artist" : "Mac Miller",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-03-27",
+      "dato" : 20170327,
       "tid" : "21.00",
       "kostnad" : 75000,
       "billettpris": 230,
@@ -171,7 +171,7 @@
 	"booking_id_505" : {
       "artist" : "Earth Wind Fire",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-05-10",
+      "dato" : 20170510,
       "tid" : "19.00",
       "kostnad" : 500000,
       "billettpris": 190,
@@ -183,7 +183,7 @@
 	"booking_id_506" : {
       "artist" : "Chance the Rapper",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-01-28",
+      "dato" : 20170128,
       "tid" : "22.00",
       "kostnad" : 15000,
       "billettpris": 140,
@@ -195,7 +195,7 @@
 	"booking_id_507" : {
       "artist" : "Kristian Kristensen",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-10-13",
+      "dato" : 20171013,
       "tid" : "20.40",
       "kostnad" : 10000,
       "billettpris": 100,
@@ -207,7 +207,7 @@
 	"booking_id_508" : {
       "artist" : "Tupac(Hologram)",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-09-01",
+      "dato" : 20170901,
       "tid" : "22.30",
       "kostnad" : 200000,
       "billettpris": 345,
@@ -219,7 +219,7 @@
 	"booking_id_509" : {
       "artist" : "Oslo symfoniorkester",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-08-16",
+      "dato" : 20170816,
       "tid" : "20.00",
       "kostnad" : 5000,
       "billettpris": 100,
@@ -231,7 +231,7 @@
 	"booking_id_510" : {
       "artist" : "Bruno Mars",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-11-11",
+      "dato" : 20161111,
       "tid" : "21.15",
       "kostnad" : 120000,
       "billettpris": 275,
@@ -243,7 +243,7 @@
 	"booking_id_511" : {
       "artist" : "Oral-Bee",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-01",
+      "dato" : 20170401,
       "tid" : "22.00",
       "kostnad" : 15000,
       "billettpris": 190,
@@ -255,7 +255,7 @@
 	"booking_id_512" : {
       "artist" : "Tungtvann(reunion)",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-05-31",
+      "dato" : 20170531,
       "tid" : "21.00",
       "kostnad" : 30000,
       "billettpris": 145,
@@ -267,7 +267,7 @@
 	"booking_id_513" : {
       "artist" : "Calvin Harris",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-10-27",
+      "dato" : 20161027,
       "tid" : "21.00",
       "kostnad" : 140000,
       "billettpris": 270,
@@ -279,7 +279,7 @@
 	"booking_id_514" : {
       "artist" : "Chris Rea julekonsert",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-12-17",
+      "dato" : 20171217,
       "tid" : "18.00",
       "kostnad" : 40000,
       "billettpris": 190,
@@ -291,7 +291,7 @@
 	"booking_id_515" : {
       "artist" : "Curumin",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-02-15",
+      "dato" : 20170215,
       "tid" : "20.00",
       "kostnad" : 15000,
       "billettpris": 105,
@@ -303,7 +303,7 @@
 	"booking_id_516" : {
       "artist" : "Michael McIntyre",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-13",
+      "dato" : 20170413,
       "tid" : "20.00",
       "kostnad" : 80000,
       "billettpris": 175,
@@ -315,7 +315,7 @@
 	"booking_id_517" : {
       "artist" : "Datarock",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2016-04-16",
+      "dato" : 20160416,
       "tid" : "21.00",
       "kostnad" : 50000,
       "billettpris": 190,
@@ -327,7 +327,7 @@
 	"booking_id_519" : {
       "artist" : "Reel Big Fish",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-09-17",
+      "dato" : 20170917,
       "tid" : "22.30",
       "kostnad" : 10000,
       "billettpris": 120,
@@ -339,7 +339,7 @@
 	"booking_id_531" : {
       "artist" : "Smash Mouth",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-05-16",
+      "dato" : 20170516,
       "tid" : "21.30",
       "kostnad" : 30000,
       "billettpris": 130,
@@ -351,7 +351,7 @@
 	"booking_id_520" : {
       "artist" : "Deadmau5",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-01",
+      "dato" : 20170401,
       "tid" : "21.00",
       "kostnad" : 150000,
       "billettpris": 240,
@@ -363,7 +363,7 @@
 	"booking_id_521" : {
       "artist" : "Creedence Clearwater Revival",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-10-23",
+      "dato" : 20171023,
       "tid" : "21.00",
       "kostnad" : 60000,
       "billettpris": 190,
@@ -375,7 +375,7 @@
 	"booking_id_522" : {
       "artist" : "Netsky og Digital Farm",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-11-21",
+      "dato" : 20171121,
       "tid" : "20.30",
       "kostnad" : 40000,
       "billettpris": 260,
@@ -387,7 +387,7 @@
 	"booking_id_523" : {
       "artist" : "Fat Boy Slim",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2015-07-01",
+      "dato" : 20150701,
       "tid" : "23.00",
       "kostnad" : 10000,
       "billettpris": 190,
@@ -399,7 +399,7 @@
 	"booking_id_524" : {
       "artist" : "J.A.C.K",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-01",
+      "dato" : 20170401,
       "tid" : "21.00",
       "kostnad" : 60000,
       "billettpris": 190,
@@ -411,7 +411,7 @@
 	"booking_id_525" : {
       "artist" : "Frank Ocean",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-12-06",
+      "dato" : 20171206,
       "tid" : "20.00",
       "kostnad" : 85000,
       "billettpris": 300,
@@ -423,7 +423,7 @@
 	"booking_id_526" : {
       "artist" : "Snoop Dogg",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-02-03",
+      "dato" : 20170203,
       "tid" : "22.00",
       "kostnad" : 80000,
       "billettpris": 230,
@@ -435,7 +435,7 @@
 	"booking_id_527" : {
       "artist" : "Snoop Dogg after party",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-02-03",
+      "dato" : 20170203,
       "tid" : "23.30",
       "kostnad" : 5000,
       "billettpris": 245,
@@ -447,7 +447,7 @@
 	"booking_id_528" : {
       "artist" : "Kompisen til Lars",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-03-07",
+      "dato" : 20170307,
       "tid" : "19.00",
       "kostnad" : 3000,
       "billettpris": 105,
@@ -459,7 +459,7 @@
 	"booking_id_529" : {
       "artist" : "Ole Ivars",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-02-12",
+      "dato" : 20170212,
       "tid" : "21.00",
       "kostnad" : 20000,
       "billettpris": 140,
@@ -471,7 +471,7 @@
 	"booking_id_530" : {
       "artist" : "Estelle",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-05-03",
+      "dato" : 20170503,
       "tid" : "21.00",
       "kostnad" : 60000,
       "billettpris": 190,
@@ -483,7 +483,7 @@
     "booking_id_555" : {
       "artist" : "Adele",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-10",
+      "dato" : 20170410,
       "tid" : "19.00",
       "kostnad" : 4000000,
       "billettpris": 1000,
@@ -495,7 +495,7 @@
     "booking_id_666" : {
       "artist" : "Staysman & Lazz",
       "bookingansvarlig" : "qUAXV4r2xPahh3BdbFIxwyljpIp1",
-      "dato" : "2017-04-10",
+      "dato" : 20170410,
       "tid" : "20.00",
       "kostnad" : 20000,
       "billettpris": 50,
