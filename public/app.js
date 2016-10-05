@@ -74,7 +74,7 @@
         }
       });
 
-      $routeProvider.otherwise({ redirectTo: '/login' });
+      $routeProvider.otherwise({ redirectTo: '/' });
 
     }
 
