@@ -1,23 +1,31 @@
 <div class="col-md-12 view-container" id="arrangementer-view">
-  <h1>Bookinger:</h1>
-  <input id="search" name="search" placeholder="Søk i bookinger" type="search" ng-model="searchingString" ng-change="filterFunction()">
-  <br><br>
-  <select ng-model="valgtStatus" ng-change="filterFunction()">
-    <option value="velg">Velg status</option>
-    <option value="aktiv">Aktiv</option>
-    <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
-    <option value="avvist_av_manager">Avvist av manager</option>
-    <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
-    <option value="ubesvart">Ubesvart</option>
-  </select>
-  <select ng-model="valgtScene" ng-change="filterFunction()">
-    <option value="velg">Velg scene</option>
-    <option value="Edgar">Edgar</option>
-    <option value="Klubben">Klubben</option>
-    <option value="Knaus">Knaus</option>
-    <option value="Storsalen">Storsalen</option>
-  </select>
-    <h2 ng-hide="((valgtScene == 'velg') && (valgtStatus == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+    <h1>Bookinger:</h1>
+    <input id="search" class="form-control" name="search" placeholder="Søk i bookinger" type="search" ng-model="searchingString" ng-change="filterFunction()">
+    <br>
+    </div>
+
+    <div class="col-md-12 form-inline">
+      <select class="form-control" ng-model="valgtStatus" ng-change="filterFunction()">
+        <option value="velg">Velg status</option>
+        <option value="aktiv">Aktiv</option>
+        <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
+        <option value="avvist_av_manager">Avvist av manager</option>
+        <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
+        <option value="ubesvart">Ubesvart</option>
+      </select>
+      <select class="form-control" ng-model="valgtScene" ng-change="filterFunction()" id="gh">
+        <option value="velg">Velg scene</option>
+        <option value="Edgar">Edgar</option>
+        <option value="Klubben">Klubben</option>
+        <option value="Knaus">Knaus</option>
+        <option value="Storsalen">Storsalen</option>
+      </select>
+    </div>
+</div>
+  <h2 ng-hide="((valgtScene == 'velg') && (valgtStatus == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
   <ul>
     <li ng-repeat="(key, value) in filtrertListe">
       <h2>{{key}}</h2>
