@@ -135,4 +135,17 @@ a:focus {
     margin: 0 auto;
     background-position: center;
   }
-}
+
+  /*Bookingoversikt*/
+
+  .italic {
+    font-style: italic;
+  }
+ .dateDesign {
+   color: rgb(185, 35, 49);
+ }
+
+ h2 {
+   font-family: Avenir Book;
+   font-size:36px;
+ }
