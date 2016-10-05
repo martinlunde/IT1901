@@ -145,7 +145,13 @@ a:focus {
    color: rgb(185, 35, 49);
  }
 
- h2 {
+ .fontFamily{
    font-family: Avenir Book;
-   font-size:36px;
+ }
+
+ .pFontSize {
+   font-size: 17px;
+ }
+ .fontSizeDate {
+   font-size: : 36px;
  }
