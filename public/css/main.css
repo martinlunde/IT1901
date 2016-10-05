@@ -14,6 +14,12 @@ a:focus {
   margin-left: 0px;
   margin-right: 0px;
 }
+
+.row2 {
+    margin-left: 25px; 
+    margin-right: 10px;
+}
+
 #top-bar {
   background-color: #111;
   overflow: hidden;

@@ -23,7 +23,7 @@
   <body ng-controller="mainCtrl">
     <div id="top-bar">
       <div class="container">
-        <a href="/#/" id="banner-logo"></a>
+        <a href="/#/" class="row2"  id="banner-logo"></a>
         <div id="session-status">
           <a ng-hide="(currentUser != null)" href="/#/login" class="login">Logg inn</a>
           <a ng-show="(currentUser != null)"><b>{{currentUser.email}} ({{currentUserInformation.stilling}})</b></a>
