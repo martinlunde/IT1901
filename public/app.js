@@ -168,7 +168,9 @@
         $scope.mainBookinger = sorterteBookings;
       });
 
-
+      firebase.database().ref("/konsertrapporter/").on("value", function(snapshot) {
+        $scope.mainRapporter = snapshot.val();
+      });
 
 
 

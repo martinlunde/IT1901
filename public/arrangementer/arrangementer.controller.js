@@ -47,18 +47,32 @@
       $scope.filterFunction();
     });
 
+    $scope.$watch('mainRapporter', function() {
+      console.log($scope.mainRapporter);
+    });
+
     $scope.intToDateFunction = function(tall) {
       tall = String(tall);
       var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
       return dato;
     }
 
-    $scope.updateModal = function(konsert) {
+    $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
+      if($scope.hasRapport == true) {
+        $scope.modalRapport = $scope.mainRapporter[key];
+      }
+      console.log($scope.modalRapport);
     }
 
-
-
+    $scope.hasRapportFunction = function(key) {
+      if(key in $scope.mainRapporter) {
+        $scope.hasRapport = true;
+      } else {
+        $scope.hasRapport = false;
+      }
+      console.log($scope.hasRapport);
+    }
 
 
 
