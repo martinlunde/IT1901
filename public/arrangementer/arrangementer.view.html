@@ -50,8 +50,8 @@
 </div>
 </div>
 <div class="item-modal modal fade" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
-        <div class="modal-content" style="width:75%; min-height:101%; margin: 0 auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
-            <div class="close-modal" data-dismiss="modal">
+        <div class="modal-content" style="width:100%; min-height:101%; margin: 0 auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+            <div class="close-modal" data-dismiss="modal" ng-click="showRapport = false">
                 <div class="lr">
                     <div class="rl">
                     </div>
@@ -68,8 +68,8 @@
                           <p><b>Billettpris:</b> {{modalInformation.billettpris}}</p>
                           <p><b>Sjanger:</b> {{modalInformation.sjanger}}</p>
                           <p><b>Status:</b> {{modalInformation.status}}</p>
-                            <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>
-                            <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
+                          <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>
+                          <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
                         </div>
                     </div>
                 </div>
