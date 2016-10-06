@@ -14,6 +14,12 @@ a:focus {
   margin-left: 0px;
   margin-right: 0px;
 }
+
+.row2 {
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
 #top-bar {
   background-color: #111;
   overflow: hidden;
@@ -237,3 +243,32 @@ a:focus {
   opacity: 0;
   display: none;
 }
+
+  /*Bookingoversikt*/
+
+  .italic {
+    font-style: italic;
+  }
+ .dateDesign {
+   color: rgb(185, 35, 49);
+ }
+
+ .fontFamily{
+   font-family: "Avenir Book", Arial, sans-serif;;
+ }
+
+ .pFontSize {
+   font-size: 17px;
+ }
+ .fontSizeDate {
+   font-size: : 36px;
+ }
+ .alignMiddle{
+   padding-top: 9px;
+ }
+ .textAlign {
+   text-align: center;
+ }
+ .border-Right{
+   border-right: 1px solid grey;
+ }
