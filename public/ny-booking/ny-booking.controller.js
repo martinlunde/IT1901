@@ -7,6 +7,8 @@
   nyBookingCtrl.$inject = ["$scope", "SpotifyService"];
   function nyBookingCtrl($scope, SpotifyService) {
 
+    var chosenArtist = null;
+
 
     $scope.searchForArtist = function (searchText) {
       SpotifyService.searchArtist(searchText, 'artist').then(function (data) {
