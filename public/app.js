@@ -46,10 +46,10 @@
     	   	controllerAs:'loginController'
         });
 
-      $routeProvider.when("/new-booking", {
-        templateUrl : "new-booking/new-booking.view.html",
-        controller : "newBookingCtrl",
-        controllerAs : "newBookingController",
+      $routeProvider.when("/ny-booking", {
+        templateUrl : "ny-booking/ny-booking.view.html",
+        controller : "nyBookingCtrl",
+        controllerAs : "nyBookingController",
         resolve: {
           // controller will not be loaded until $waitForSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below
