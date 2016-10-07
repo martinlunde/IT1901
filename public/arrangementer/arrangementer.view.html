@@ -47,7 +47,7 @@
       </div>
       <ul class="list-unstyled">
         <li ng-repeat="(key, konsert) in value" ng-init="showAvvisForm = false">
-          
+
           <div class="row pFontSize">
               <div class="col-lg-3 alignMiddle border-Right">
                 <p>{{konsert.artist}}</p>
@@ -59,14 +59,17 @@
               <div class="col-lg-1 alignMiddle textAlign border-Right">
                 <p>{{konsert.billettpris}}</p>
               </div>
-              <div class="col-lg-2 alignMiddle border-Right">
-                <p>{{konsert.sjanger}}</p>
-              </div>
               <div class="col-lg-1 alignMiddle textAlign border-Right">
                 <p>{{konsert.scene}}</p>
               </div>
-              <div class="col-lg-1 alignMiddle textAlign border-Right">
+              <div class="col-lg-3 alignMiddle textAlign border-Right">
+                <p>{{konsert.sjanger}}</p>
+              </div>
+              <div class="col-lg-1 alignMiddle textAlign">
                 <p>{{konsert.status}}</p>
+              </div>
+
+              <div class="col-lg-2">
               </div>
             </div>
           </li>
