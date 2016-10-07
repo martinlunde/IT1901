@@ -1,54 +1,83 @@
-<div class="col-md-12">
-  <h1>Arrangementer:</h1>
-  <input id="search" name="search" placeholder="Søk i arrangementer" type="search" ng-model="searchingString" ng-change="filterFunction()">
-  <br><br>
-  <select ng-model="valgtSjanger" ng-change="filterFunction()">
-    <option value="velg">Velg sjanger</option>
-    <option value="Alternativ">Alternativ</option>
-    <option value="Blues">Blues</option>
-    <option value="Country">Country</option>
-    <option value="Dance">Dance</option>
-    <option value="Elektronisk">Elektronisk</option>
-    <option value="Folk">Folk</option>
-    <option value="Hip Hop">Hip Hop</option>
-    <option value="Indie">Indie</option>
-    <option value="Jazz">Jazz</option>
-    <option value="Klassisk">Klassisk</option>
-    <option value="Norsk">Norsk</option>
-    <option value="Opera">Opera</option>
-    <option value="Pop">Pop</option>
-    <option value="R&amp;B">R&amp;B</option>
-    <option value="Reggae">Reggae</option>
-    <option value="Rock">Rock</option>
-  </select>
-  <select ng-model="valgtScene" ng-change="filterFunction()">
-    <option value="velg">Velg scene</option>
-    <option value="Edgar">Edgar</option>
-    <option value="Klubben">Klubben</option>
-    <option value="Knaus">Knaus</option>
-    <option value="Storsalen">Storsalen</option>
-  </select>
+<div class="col-md-12 fontFamily">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Arrangementer</h1>
+      <input id="search" class="form-control italic" name="search" placeholder="Søk i arrangementer" type="search" ng-model="searchingString" ng-change="filterFunction()">
+      <br>
+    </div>
+    <div class="col-md-12 form-inline">
+      <select class="form-control" ng-model="valgtSjanger" ng-change="filterFunction()">
+        <option value="velg">Velg sjanger</option>
+        <option value="Alternativ">Alternativ</option>
+        <option value="Blues">Blues</option>
+        <option value="Country">Country</option>
+        <option value="Dance">Dance</option>
+        <option value="Elektronisk">Elektronisk</option>
+        <option value="Folk">Folk</option>
+        <option value="Hip Hop">Hip Hop</option>
+        <option value="Indie">Indie</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Klassisk">Klassisk</option>
+        <option value="Norsk">Norsk</option>
+        <option value="Opera">Opera</option>
+        <option value="Pop">Pop</option>
+        <option value="R&amp;B">R&amp;B</option>
+        <option value="Reggae">Reggae</option>
+        <option value="Rock">Rock</option>
+      </select>
+      <select class="form-control" ng-model="valgtScene" ng-change="filterFunction()">
+        <option value="velg">Velg scene</option>
+        <option value="Edgar">Edgar</option>
+        <option value="Klubben">Klubben</option>
+        <option value="Knaus">Knaus</option>
+        <option value="Storsalen">Storsalen</option>
+      </select>
   <input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()">Vis tidligere arrangementer
-    <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
-  <ul>
+  </div>
+
+  <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
+
+  <div class="row">
+  <ul class="list-unstyled">
     <li ng-repeat="(key, value) in filtrertListe">
-      <h2>{{intToDateFunction(key).toDateString()}}</h2>
-      <ul>
+      <div class ="row">
+        <div class="col-lg-12 dateDesign">
+          <h2>{{intToDateFunction(key).toDateString()}}</h2>
+        </div>
+      </div>
+      <ul class="list-unstyled">
         <li ng-repeat="(key, konsert) in value" ng-init="showAvvisForm = false">
-          <p><b>Artist:</b> {{konsert.artist}}</p>
-          <p><b>Scene:</b> {{konsert.scene}}</p>
-          <p><b>Tid:</b> {{konsert.tid}}</p>
-          <p><b>Billettpris:</b> {{konsert.billettpris}}</p>
-          <p><b>Sjanger:</b> {{konsert.sjanger}}</p>
-          <p><b>Status:</b> {{konsert.status}}</p>
-          <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-default">Oversikt</button></a>
-          <br>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-</div>
+<<<<<<< HEAD
+          <div class="row pFontSize">
+              <div class="col-lg-3 alignMiddle border-Right">
+                <p>{{konsert.artist}}</p>
+              </div>
+
+              <div class="col-lg-1 alignMiddle textAlign border-Right">
+                <p>{{konsert.tid}}</p>
+              </div>
+              <div class="col-lg-1 alignMiddle textAlign border-Right">
+                <p>{{konsert.billettpris}}</p>
+              </div>
+              <div class="col-lg-1 alignMiddle textAlign border-Right">
+                <p>{{konsert.scene}}</p>
+              </div>
+              <div class="col-lg-3 alignMiddle textAlign border-Right">
+                <p>{{konsert.sjanger}}</p>
+              </div>
+              <div class="col-lg-1 alignMiddle textAlign">
+                <p>{{konsert.status}}</p>
+              </div>
+              <div class="col-lg-2">
+                <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-default">Oversikt</button></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
 <div class="item-modal modal fade" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
         <div class="modal-content" style="width:100%; min-height:101%; margin: 0 auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
             <div class="close-modal" data-dismiss="modal" ng-click="showRapport = false">
@@ -82,3 +111,4 @@
             </div>
         </div>
     </div>
+</div>
