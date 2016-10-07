@@ -52,20 +52,14 @@
                 <p>{{konsert.artist}}</p>
               </div>
 
-              <div class="col-lg-1 alignMiddle textAlign border-Right">
+              <div class="col-lg-2 alignMiddle textAlign border-Right">
                 <p>{{konsert.tid}}</p>
               </div>
-              <div class="col-lg-1 alignMiddle textAlign border-Right">
-                <p>{{konsert.billettpris}}</p>
-              </div>
-              <div class="col-lg-1 alignMiddle textAlign border-Right">
+              <div class="col-lg-2 alignMiddle textAlign border-Right">
                 <p>{{konsert.scene}}</p>
               </div>
-              <div class="col-lg-3 alignMiddle textAlign border-Right">
-                <p>{{konsert.sjanger}}</p>
-              </div>
-              <div class="col-lg-1 alignMiddle textAlign border-Right">
-                <p>{{konsert.status}}</p>
+              <div class="col-lg-3 alignMiddle textAlign">
+                <p>{{konsert.pris_medlem}},- / {{konsert.pris_ikke_medlem}},-</p>
               </div>
               <div class="col-lg-2">
                 <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Oversikt</button></a>
@@ -76,10 +70,9 @@
       </li>
     </ul>
   </div>
-
-<div class="item-modal modal fade" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
-        <div class="modal-content" style="width:100%; min-height:101%; margin: 0 auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
-            <div class="close-modal" data-dismiss="modal" ng-click="showRapport = false">
+<div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
+        <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+            <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
                     </div>
