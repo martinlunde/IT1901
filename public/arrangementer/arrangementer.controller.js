@@ -4,8 +4,8 @@
   angular.module("angularAuth")
   .controller("arrangementerCtrl", arrangementerCtrl);
 
-  arrangementerCtrl.$inject = ["$scope", "FirebaseService"];
-  function arrangementerCtrl($scope, FirebaseService) {
+  arrangementerCtrl.$inject = ["$scope", "FirebaseService", "SpotifyService"];
+  function arrangementerCtrl($scope, FirebaseService, SpotifyService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -56,8 +56,12 @@
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
       if($scope.hasRapport == true) {
-        $scope.modalRapport = $scope.mainRapporter[key];
+        $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
+      SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
+        $scope.modalInformation.spotifyData = data;
+      })
+      console.log($scope.modalInformation);
     }
 
     $scope.hasRapportFunction = function(key) {
@@ -67,7 +71,6 @@
         $scope.hasRapport = false;
       }
     }
-
 
 
   }
