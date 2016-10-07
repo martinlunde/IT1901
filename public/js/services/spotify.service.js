@@ -28,4 +28,27 @@ angular.module('angularAuth')
 
     }
 
+    this.getArtist = function(artistID) {
+
+      var deferred = $q.defer();
+      var params = {};
+      params.q = artistID;
+      params.type = "artist";
+
+      $http({
+        url: this.apiBase + "/artists/" + artistID,
+        method: 'GET',
+        params: params,
+        withCredentials: false
+      })
+      .success(function (data) {
+        deferred.resolve(data);
+      })
+      .error(function (data) {
+        deferred.reject(data);
+      });
+      return deferred.promise;
+
+    }
+
   });

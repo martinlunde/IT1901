@@ -17,6 +17,12 @@
       });
     };
 
+    $scope.getArtistById = function (artistID) {
+      SpotifyService.getArtist(artistID).then(function (data) {
+        console.log(data);
+      });
+    };
+
     $scope.sendBooking = function (booking) {
       console.log(booking);
       var newPostKey = firebase.database().ref().child('bookinger').push().key;
