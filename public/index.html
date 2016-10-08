@@ -50,6 +50,7 @@
               <ul>
                 <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingsjef') || (currentUserInformation.stilling == 'bookingansvarlig'))"><a href="/#/bookingoversikt">Bookingoversikt</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/ny-booking">+ Ny booking</a></li>
+                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/rapportoversikt">Rapporter</a></li>
               </ul>
             </nav>
           </div>

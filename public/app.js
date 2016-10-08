@@ -74,6 +74,20 @@
         }
       });
 
+      $routeProvider.when("/rapportoversikt", {
+        templateUrl : "rapportoversikt/rapportoversikt.view.html",
+        controller : "rapportoversiktCtrl",
+        controllerAs : "rapportoversiktController",
+        resolve: {
+          // controller will not be loaded until $waitForSignIn resolves
+          // Auth refers to our $firebaseAuth wrapper in the factory below
+          "currentAuth": ["Auth", function(Auth) {
+            // $waitForSignIn returns a promise so the resolve waits for it to complete
+            return Auth.$requireSignIn();
+          }]
+        }
+      });
+
       $routeProvider.otherwise({ redirectTo: '/' });
 
     }
