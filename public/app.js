@@ -46,24 +46,10 @@
     	   	controllerAs:'loginController'
         });
 
-      $routeProvider.when("/profile", {
-        templateUrl : "profile/profile.view.html",
-        controller : "profileCtrl",
-        controllerAs : "profileController",
-        resolve: {
-          // controller will not be loaded until $waitForSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
-          "currentAuth": ["Auth", function(Auth) {
-            // $waitForSignIn returns a promise so the resolve waits for it to complete
-            return Auth.$requireSignIn();
-          }]
-        }
-      });
-
-      $routeProvider.when("/new-booking", {
-        templateUrl : "new-booking/new-booking.view.html",
-        controller : "newBookingCtrl",
-        controllerAs : "newBookingController",
+      $routeProvider.when("/ny-booking", {
+        templateUrl : "ny-booking/ny-booking.view.html",
+        controller : "nyBookingCtrl",
+        controllerAs : "nyBookingController",
         resolve: {
           // controller will not be loaded until $waitForSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -88,35 +74,7 @@
         }
       });
 
-      $routeProvider.when("/rapportoversikt", {
-        templateUrl : "rapportoversikt/rapportoversikt.view.html",
-        controller : "rapportoversiktCtrl",
-        controllerAs : "rapportoversiktController",
-        resolve: {
-          // controller will not be loaded until $waitForSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
-          "currentAuth": ["Auth", function(Auth) {
-            // $waitForSignIn returns a promise so the resolve waits for it to complete
-            return Auth.$requireSignIn();
-          }]
-        }
-      });
-
-      $routeProvider.when("/new-rapport", {
-        templateUrl : "new-rapport/new-rapport.view.html",
-        controller : "newRapportCtrl",
-        controllerAs : "newRapportController",
-        resolve: {
-          // controller will not be loaded until $waitForSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
-          "currentAuth": ["Auth", function(Auth) {
-            // $waitForSignIn returns a promise so the resolve waits for it to complete
-            return Auth.$requireSignIn();
-          }]
-        }
-      });
-
-      $routeProvider.otherwise({ redirectTo: '/login' });
+      $routeProvider.otherwise({ redirectTo: '/' });
 
     }
 
@@ -210,16 +168,8 @@
         $scope.mainBookinger = sorterteBookings;
       });
 
-      //tester ut noe greier
       firebase.database().ref("/konsertrapporter/").on("value", function(snapshot) {
-        var sorterteRapporter = new Object();
-        snapshot.forEach(function(child) {
-          var rapportID = child.key;
-          var rapportValue = child.val();
-            sorterteRapporter[rapportID] = rapportValue;
-        });
-
-        $scope.rapporter = sorterteRapporter
+        $scope.mainRapporter = snapshot.val();
       });
 
 

@@ -53,10 +53,20 @@
       return dato;
     }
 
+    $scope.updateModal = function(key, konsert) {
+      $scope.modalInformation = konsert;
+      if($scope.hasRapport == true) {
+        $scope.modalRapport = $scope.mainRapporter[key];
+      }
+    }
 
-
-
-
+    $scope.hasRapportFunction = function(key) {
+      if(key in $scope.mainRapporter) {
+        $scope.hasRapport = true;
+      } else {
+        $scope.hasRapport = false;
+      }
+    }
 
 
 
