@@ -34,7 +34,7 @@
     <li ng-repeat="(key, value) in filtrertListe">
       <h2>{{intToDateFunction(key).toDateString()}}</h2>
       <ul>
-        <li ng-repeat="(key, konsert) in value" ng-init="showAvvisForm = false">
+        <li ng-repeat="(key, konsert) in value" ng-init="">
           <p><b>Artist:</b> {{konsert.artist}}</p>
           <p><b>Scene:</b> {{konsert.scene}}</p>
           <p><b>Tid:</b> {{konsert.tid}}</p>
