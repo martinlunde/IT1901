@@ -12,7 +12,6 @@
 
     $scope.searchForArtist = function (searchText) {
       SpotifyService.searchArtist(searchText, 'artist').then(function (data) {
-        console.log(data);
         $scope.searchResult = data.artists.items;
       });
     };
@@ -23,17 +22,55 @@
       });
     };
 
+    $scope.updateFormData = function(band) {
+      $scope.formData = band;
+    }
+
+    $scope.emptyFormData = function() {
+      $scope.formData = {};
+      console.log("Empty");
+    }
+
+    $scope.convertToTwoNumbers = function(number) {
+      if (number < 10) {
+        number = "0" + number
+      }
+      return number
+    }
+
     $scope.sendBooking = function (booking) {
-      console.log(booking);
+      // Fikser dato-objektet
+      var year = booking.dato.getFullYear();
+      var month = $scope.convertToTwoNumbers(booking.dato.getMonth() + 1);
+      var day = $scope.convertToTwoNumbers(booking.dato.getDate());
+      var tid = String(year) + String(month) + String(day);
+      tid = parseInt(tid);
+
+      // Oppretter en key for bookingen
       var newPostKey = firebase.database().ref().child('bookinger').push().key;
+
+      // Lager objektet og sender det inn til Firebase
       firebase.database().ref().child('bookinger').child(newPostKey).set({
-          artist : booking.artist,
-          billettpris : booking.billettpris,
-          dato : booking.dato.getYear() + "-" + booking.dato.getMonth() + "-" + booking.dato.getDate(),
-          kostnad : booking.kostnad,
-          scene : booking.scene,
-          bookingansvarlig : firebase.auth().currentUser.uid
+        aldersgrense : booking.aldersgrense,
+        artist : $scope.formData.name,
+        bookingansvarlig : firebase.auth().currentUser.uid,
+        dato : tid,
+        har_rapport : false,
+        kostnad : booking.kostnad,
+        pris_ikke_medlem : booking.billettprip_ikke_medlem,
+        pris_medlem : booking.billettpris_medlem,
+        scene : booking.scene,
+        sjanger : $scope.formData.genres,
+        spotify_id : $scope.formData.id,
+        status : "ubesvart",
+        tid : booking.tid
       });
+
+      // Endrer variabelen til å vise tilbakemelding
+      $scope.skjema_sendt = true;
+
+      // Tilbakestiller skjemainnhold
+      $scope.booking = {};
     };
 
     $scope.updaterBooking = function (bookingId, nyStatus) {

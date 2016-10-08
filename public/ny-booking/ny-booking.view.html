@@ -1,6 +1,6 @@
 <div id="ny-booking" class="col-md-12 view-container">
   <div class="row">
-    <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="row">
         <div class="col-md-12">
             <h3>Søk etter band</h3>
@@ -12,85 +12,119 @@
             <input type="text" class="form-control" name="name" ng-model="searchText" ng-change="searchForArtist(searchText)"/>
           </div>
         </div>
-        <div class="col-md-12" style="height: 600px; overflow: scroll; overflow-x: hidden;">
+        <div class="col-md-12" style="max-height: 600px; overflow-x: hidden;">
           <div class="col-md-12" style="padding: 0px; margin-bottom: 20px;" ng-repeat="artist in searchResult|limitTo:15">
             <div class="col-md-4">
               <img src="{{artist.images[0].url}}" alt="" height="100px"/>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
               <p><b>Navn:</b> {{artist.name}}</p>
               <p><b>Followers:</b> {{artist.followers.total}}</p>
-              <a href="#{{artist.id}}" class="modal-link" data-toggle="modal" target="_self">Click</a>
+              <!-- <a href="#{{artist.id}}" class="modal-link" data-toggle="modal" target="_self">Click</a> -->
             </div>
-            <div class="item-modal modal fade" id="{{artist.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-content">
-                    <div class="close-modal" data-dismiss="modal">
-                        <div class="lr">
-                            <div class="rl">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="modal-body">
-                                    <h2>{{artist.name}}</h2>
-                                    <h4><small><b>followers:</b> {{artist.followers.total}}</small></h4>
-                                    <hr class="star-primary">
-                                    <img src="{{artist.images[0].url}}" class="img-responsive img-rounded img-centered" alt="" style="height:100px;"> <!-- Her må css-koden fjernes og endres -->
-                                    <p>
-                                      <i>
-                                        "I am honored to be a part of SEA, because i get an unique chance to learn a lot about the Ethiopian society and their challenges.
-                                        Seeing how unfair the world is, makes me well aware of the fact that we need change and adjustments.
-                                        This project does not only provide this, but it also promotes environmental sustainability and better life quality for all people,
-                                        which are two things that I highly value and want to contribute to achieve."
-                                      </i>
-                                    </p>
-                                    <div class="work-experience-list">
-                                      <h3><strong>Sjangere:</strong></h3>
-                                      <ul ng-repeat="genre in artist.genres">
-                                        <li><strong><a>{{genre}}</a></strong></li>
-                                      </ul>
-                                    </div>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-2">
+              <a ng-click="emptyFormData(); updateFormData(artist)" href="#form-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Oversikt</button></a>
             </div>
             <br>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col-md-12">
-            <h3>Ny Booking</h3>
-            <hr>
+
+    <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false">
+        <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+            <div class="close-modal" data-dismiss="modal" ng-click="emptyFormData(); skjema_sendt = false">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div id="usendt_booking_innhold" class="container" ng-show="!skjema_sendt">
+              <div class="row">
+                <h1>Bookingskjema</h1>
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-6">
+                    <img src="{{formData.images[0].url}}" class="img-responsive img-rounded img-centered" alt="" style="height:200px;">
+                  </div>
+                  <div class="col-md-6" style="padding-top: 40px;">
+                    <p><b>Band: </b>{{formData.name}}</p>
+                    <p><b>Populæritet: </b>{{formData.popularity}}</p>
+                    <p><b>Followers på Spotify: </b>{{formData.followers.total}}</p>
+                    <p><b>Sjangere: </b><span ng-repeat="sjanger in formData.genres" style="text-transform: capitalize;">{{sjanger}}, </span></p>
+                  </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-left">
+                  <form name="bookingForm">
+                    <div class="col-md-6">
+                      <div class="form-group" show-errors>
+                        <label>Aldersgrense: </label><input type="number" class="form-control" name="aldersgrense" ng-model="booking.aldersgrense" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Billettpris (Medlem): </label><input type="number" class="form-control" name="billettpris_medlem" ng-model="booking.billettpris_medlem" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Billettpris (Ikke medlem): </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="booking.billettprip_ikke_medlem" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Scene: </label>
+                        <select class="form-control" name="scene" ng-model="booking.scene" required>
+                          <option value="Edgar">Edgar</option>
+                          <option value="Klubben">Klubben</option>
+                          <option value="Knaus">Knaus</option>
+                          <option value="Storsalen">Storsalen</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group" show-errors>
+                        <label>Dato: </label><input type="date" class="form-control" name="dato" ng-model="booking.dato" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Klokkeslett: </label>
+                        <select class="form-control" name="scene" ng-model="booking.tid" required>
+                          <option>12.00</option>
+                          <option>12.30</option>
+                          <option>14.00</option>
+                          <option>14.30</option>
+                          <option>15.00</option>
+                          <option>15.30</option>
+                          <option>16.00</option>
+                          <option>16.30</option>
+                          <option>17.00</option>
+                          <option>17.30</option>
+                          <option>18.00</option>
+                          <option>18.30</option>
+                          <option>19.00</option>
+                          <option>19.30</option>
+                          <option>20.00</option>
+                          <option>20.30</option>
+                          <option>21.00</option>
+                          <option>21.30</option>
+                          <option>22.00</option>
+                          <option>22.30</option>
+                          <option>23.00</option>
+                          <option>23.30</option>
+                        </select>
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Kostnad: </label><input type="number" class="form-control" name="kostnad" ng-model="booking.kostnad" required />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-primary">Send</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="sendt_booking_innhold" class="container" ng-show="skjema_sendt">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <h2>Booking har blitt sendt!</h2>
+                </div>
+              </div>
+            </div>
         </div>
-        <div class="col-md-12">
-          <form name="bookingForm">
-            <div class="form-group" show-errors>
-              <label>Artist: <input type="text" class="form-control" name="artist" ng-model="booking.artist" required /></label>
-            </div>
-            <div class="form-group" show-errors>
-              <label>Billettpris: <input type="text" class="form-control" name="billettpris" ng-model="booking.billettpris" required /></label>
-            </div>
-            <div class="form-group" show-errors>
-              <label>Dato: <input type="date" class="form-control" name="dato" ng-model="booking.dato" required /></label>
-            </div>
-            <div class="form-group" show-errors>
-              <label>Kostnad: <input type="text" class="form-control" name="kostnad" ng-model="booking.kostnad" required /></label>
-            </div>
-            <div class="form-group" show-errors>
-              <label>Scene: <input type="text" class="form-control" name="scene" ng-model="booking.scene" required /></label>
-            </div>
-            <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-primary">Send</button>
-          </form>
-        </div>
-      </div>
     </div>
   </div>
 </div>
