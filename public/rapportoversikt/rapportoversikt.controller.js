@@ -72,6 +72,6 @@
     $scope.clearModalRapport = function(){
       $scope.modalRapport = null;
     }
-    
+
   }
 })();

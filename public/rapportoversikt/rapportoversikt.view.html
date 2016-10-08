@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <h1>Rapporter:</h1>
-  <input id="search" name="search" placeholder="Søk i rapporter" type="search" ng-model="searchingString" ng-change="filterFunction()">
+  <input id="search" name="search" placeholder="Søk i arrangementer" type="search" ng-model="searchingString" ng-change="filterFunction()">
   <br><br>
   <select ng-model="valgtSjanger" ng-change="filterFunction()">
     <option value="velg">Velg sjanger</option>
@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="modal-body">
-                          <h2>Rapport for "{{modalInformation.artist}}"</h2>
+                          <h2>Rapport for "{{modalInformation.artist}}"</h2></br>
                           <p><b>Publikumstall:</b> {{modalRapport.publikumstall}}</p>
                           <p><b>profitt:</b> {{modalRapport.profitt}}</p>
                           <p><b>tilleggskostnader:</b>{{modalRapport.tilleggskostnader}}</p>
