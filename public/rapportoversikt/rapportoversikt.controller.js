@@ -68,5 +68,10 @@
         $scope.hasRapport = false;
       }
     }
+
+    $scope.clearModalRapport = function(){
+      $scope.modalRapport = null;
+    }
+    
   }
 })();

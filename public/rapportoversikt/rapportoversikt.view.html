@@ -42,11 +42,9 @@
           <p><b>Sjanger:</b> {{konsert.sjanger}}</p>
           <p><b>Status:</b> {{konsert.status}}</p>
 
-          <!-- DETTE ER EN TEST -->
             <div class="col-lg-2">
               <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Se Rapport</button></a>
             </div>
-            <!-- TEST AVSLUTTET -->
 
           <br>
         </li>
@@ -55,10 +53,9 @@
   </ul>
 </div>
 
-<!-- DETTE ER EN TEST -->
 <div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
         <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
-            <div class="close-modal" data-dismiss="modal">
+            <div class="close-modal" data-dismiss="modal" ng-click="clearModalRapport()">
                 <div class="lr">
                     <div class="rl">
                     </div>
@@ -72,16 +69,11 @@
                           <p><b>Publikumstall:</b> {{modalRapport.publikumstall}}</p>
                           <p><b>profitt:</b> {{modalRapport.profitt}}</p>
                           <p><b>tilleggskostnader:</b>{{modalRapport.tilleggskostnader}}</p>
-                          <!--
-                          <button type="button" class="btn btn-default"  ng-click="showRapport = !showRapport">Vis rapport</button>
-                          <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
-                          -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- TEST AVSLUTTET -->
 
 </div>
