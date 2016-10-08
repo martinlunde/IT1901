@@ -186,11 +186,6 @@
         $scope.mainRapporter = snapshot.val();
       });
 
-
-
-
-
-
     }
 
 })();

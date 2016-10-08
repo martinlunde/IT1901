@@ -41,42 +41,47 @@
           <p><b>Billettpris:</b> {{konsert.billettpris}}</p>
           <p><b>Sjanger:</b> {{konsert.sjanger}}</p>
           <p><b>Status:</b> {{konsert.status}}</p>
-          <!-- Knapp for rapport -->
-          <!-- Endre fra konsert.status til rapport.status når database er klar for det -->
-          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#rapportModal">Se Rapport</button>
-          <!-- Modal -->
-          <div id="rapportModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
 
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Rapport</h4>
-                </div>
-
-                <div class="modal-body">
-                  <!-- Info i rapport her -->
-                </div>
-
-                <div class="modal-footer">
-                  <button ng-show="(currentUserInformation.stilling == 'bookingsjef')" ng-click="showAvvisForm = !showAvvisForm" class="btn btn-default">Avvis</button>
-                  <button ng-click="" type="submit" class="btn btn-primary">Godkjenn</button>
-                  <form name="avvisForm" ng-show="showAvvisForm == true">
-                    <h3>Fyll ut hvorfor ikke:</h3>
-                    <div class="form-group" show-errors>
-                      <label>Kommentar: <input type="text" class="form-control" name="kommentar" ng-model="avvisningRapport.kommentar" required /></label>
-                    </div>
-                  <button ng-click="" type="submit" ng-disabled="" class="btn btn-primary">Send avvisning</button>
-                </div>
-
-              </div>
+          <!-- DETTE ER EN TEST -->
+            <div class="col-lg-2">
+              <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Se Rapport</button></a>
             </div>
-          </div>
+            <!-- TEST AVSLUTTET -->
+
           <br>
         </li>
       </ul>
     </li>
   </ul>
 </div>
+
+<!-- DETTE ER EN TEST -->
+<div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
+        <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="modal-body">
+                          <h2>Rapport for "{{modalInformation.artist}}"</h2>
+                          <p><b>Publikumstall:</b> {{modalRapport.publikumstall}}</p>
+                          <p><b>profitt:</b> {{modalRapport.profitt}}</p>
+                          <p><b>tilleggskostnader:</b>{{modalRapport.tilleggskostnader}}</p>
+                          <!--
+                          <button type="button" class="btn btn-default"  ng-click="showRapport = !showRapport">Vis rapport</button>
+                          <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
+                          -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- TEST AVSLUTTET -->
+
 </div>
