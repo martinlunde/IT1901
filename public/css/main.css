@@ -248,13 +248,61 @@ a:focus {
   padding-bottom: 15px;
 }
 
+.bookingoObject button {
+  border-radius: 0;
+}
+
+/*Arrangementer*/
+.arrangementerModal .col-md-12 {
+  padding-top: 80px;
+}
+
+#arrangementer button {
+  background-color: #ba202c;
+  color: white;
+
+}
+#arrangementer button:hover {
+  background-color: #401314;
+}
+
+.arrangementerModal button {
+  border-radius: 0;
+  margin-top: 50px;
+}
+
+.arrangementerModal div {
+  margin: auto;
+}
+
+.arrangementerModal h2, .modalRapport h3 {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 20px;
+}
+
+.arrangementerModal p, .modalRapport p {
+  margin-left: 50px;
+  padding-top: 10px;
+  clear: both;
+  float: left;
+}
+
+.modalRapport {
+  background-color: #fefefe;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  height: 750px;
+  width: 80%;
+  margin: 50px auto;
+}
+
   /*Bookingoversikt*/
 
   .italic {
     font-style: italic;
   }
  .dateDesign {
-   color: rgb(185, 35, 49);
+   color: #ba202c;
  }
 
  .fontFamily{

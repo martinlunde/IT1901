@@ -172,7 +172,9 @@
         $scope.mainRapporter = snapshot.val();
       });
 
-
+      firebase.database().ref("/brukere/").on("value", function(snapshot) {
+        $scope.mainBrukere = snapshot.val();
+      });
 
 
 

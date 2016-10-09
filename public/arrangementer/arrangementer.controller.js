@@ -63,7 +63,6 @@
       SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
         $scope.modalInformation.spotifyData = data;
       })
-      console.log($scope.modalInformation);
     }
 
     $scope.hasRapportFunction = function(key) {
