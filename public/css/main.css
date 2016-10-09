@@ -244,6 +244,10 @@ a:focus {
   display: none;
 }
 
+.bookingoObject {
+  padding-bottom: 15px;
+}
+
   /*Bookingoversikt*/
 
   .italic {
