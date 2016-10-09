@@ -29,6 +29,8 @@
 
     $scope.isValidFilter = function(value) {
       var today = new Date();
+      var date = $scope.intToDateFunction(value.dato);
+      date.setHours(parseInt(value.tid.substring(0,2)));
       if(value.status != 'aktiv') {
         return false;
       } else if (($scope.searchingString != undefined) && (value.artist.toLowerCase().indexOf($scope.searchingString.toLowerCase()) == -1)){
@@ -37,7 +39,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > $scope.intToDateFunction(value.dato)))) {
+      } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
       }
       return true;
