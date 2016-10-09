@@ -71,7 +71,7 @@
     </ul>
   </div>
 <div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
-        <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+        <div class="modal-content" style="width:75%; min-height: 100%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
@@ -82,8 +82,8 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="modal-body">
-                          <h2>INFORMASJON:</h2>
-                          <p><b>Artist:</b> {{modalInformation.artist}}</p>
+                          <h2><b>{{modalInformation.artist}}</b></h2>
+                          <img src="{{modalInformation.spotifyData.images[0].url}}" alt="Bilde av {{modalInformation.artist}}" style="height: 300px; width: 300px; padding-top: 40px;" />
                           <p><b>Scene:</b> {{modalInformation.scene}}</p>
                           <p><b>Tid:</b> {{modalInformation.tid}}</p>
                           <p><b>Billettpris:</b> {{modalInformation.billettpris}}</p>
@@ -97,9 +97,9 @@
             </div>
             <div name="modalRapport" ng-show="showRapport == true" style="border: 1px dotted black; width: 800px; height: 800px; margin: 20px auto;">
               <h2>Rapport:</h2>
-              <p><b>Publikumstall:</b> {{modalRapport.publikumstall}}</p>
-              <p><b>profitt:</b> {{modalRapport.profitt}}</p>
-              <p><b>tilleggskostnader:</b> {{modalRapport.tilleggskostnader}}</p>
+              <p><b>Publikumstall:</b> {{modalInformation.rapport.publikumstall}}</p>
+              <p><b>profitt:</b> {{modalInformation.rapport.profitt}}</p>
+              <p><b>tilleggskostnader:</b> {{modalInformation.rapport.tilleggskostnader}}</p>
             </div>
         </div>
     </div>

@@ -4,8 +4,8 @@
   angular.module("angularAuth")
   .controller("arrangementerCtrl", arrangementerCtrl);
 
-  arrangementerCtrl.$inject = ["$scope", "FirebaseService"];
-  function arrangementerCtrl($scope, FirebaseService) {
+  arrangementerCtrl.$inject = ["$scope", "FirebaseService", "SpotifyService"];
+  function arrangementerCtrl($scope, FirebaseService, SpotifyService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -29,6 +29,8 @@
 
     $scope.isValidFilter = function(value) {
       var today = new Date();
+      var date = $scope.intToDateFunction(value.dato);
+      date.setHours(parseInt(value.tid.substring(0,2)));
       if(value.status != 'aktiv') {
         return false;
       } else if (($scope.searchingString != undefined) && (value.artist.toLowerCase().indexOf($scope.searchingString.toLowerCase()) == -1)){
@@ -37,7 +39,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > $scope.intToDateFunction(value.dato)))) {
+      } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
       }
       return true;
@@ -56,8 +58,12 @@
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
       if($scope.hasRapport == true) {
-        $scope.modalRapport = $scope.mainRapporter[key];
+        $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
+      SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
+        $scope.modalInformation.spotifyData = data;
+      })
+      console.log($scope.modalInformation);
     }
 
     $scope.hasRapportFunction = function(key) {
@@ -67,7 +73,6 @@
         $scope.hasRapport = false;
       }
     }
-
 
 
   }
