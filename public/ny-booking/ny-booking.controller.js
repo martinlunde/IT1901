@@ -70,8 +70,12 @@
       $scope.skjema_sendt = true;
 
       // Tilbakestiller skjemainnhold
-      $scope.booking = {};
+      $scope.resetBookingForm();
     };
+
+    $scope.resetBookingForm = function() {
+        $scope.booking = {};
+      };
 
     $scope.updaterBooking = function (bookingId, nyStatus) {
       firebase.database().ref().child('bookinger').child(bookingId).update({
