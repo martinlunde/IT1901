@@ -1,4 +1,4 @@
-<div class="col-md-12 view-container fontFamily" id="arrangementer-view">
+  <div class="col-md-12 view-container fontFamily" id="arrangementer-view">
 
   <div class="row">
 
@@ -10,9 +10,9 @@
     <div class="col-md-12 form-inline">
       <select class="form-control" ng-model="valgtStatus" ng-change="filterFunction()">
         <option value="velg">Velg status</option>
-        <option value="avvist_av_bookingsjef" ng-hide="currentUserInformation.stilling == 'bookingsjef'">Avvist av bookingsjef</option>
-        <option value="avvist_av_manager" ng-hide="currentUserInformation.stilling == 'bookingansvarlig'">Avvist av bookingansvarlig</option>
-        <option value="godkjent_av_bookingsjef" ng-hide="currentUserInformation.stilling == 'bookingsjef'">Godkjent av bookingsjef</option>
+        <option value="avvist_av_bookingsjef">Avvist av bookingsjef</option>
+        <option value="avvist_av_manager">Avbrutt under planlegging</option>
+        <option value="godkjent_av_bookingsjef">Godkjent av bookingsjef</option>
         <option value="ubesvart">Ubesvart</option>
       </select>
       <select class="form-control" ng-model="valgtScene" ng-change="filterFunction()" id="gh">

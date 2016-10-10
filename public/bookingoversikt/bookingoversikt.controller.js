@@ -36,9 +36,7 @@
         return false;
       } else if(($scope.currentUserInformation.stilling == 'bookingansvarlig') && (value.bookingansvarlig != $scope.currentUser.uid)) {
         return false;
-      } else if(($scope.currentUserInformation.stilling == 'bookingansvarlig') && ((value.status == 'aktiv') || (value.status == 'avvist_av_manager'))) {
-        return false;
-      } else if(($scope.currentUserInformation.stilling == 'bookingsjef') && ((value.status == 'aktiv') || (value.status == 'avvist_av_bookingsjef') || (value.status == 'godkjent_av_bookingsjef'))) {
+      } else if(value.status == 'aktiv') {
         return false;
       }
       return true;
@@ -78,9 +76,9 @@
     $scope.makeStatusPrintable = function(status) {
       if(status == 'godkjent_av_bookingsjef') {
         return "GODKJENT"
-      } else if(status == 'avvist_av_bookingsjef') {
-        return "AVVIST"
       } else if(status == 'avvist_av_manager') {
+        return "AVBRUTT"
+      } else if(status == 'avvist_av_bookingsjef') {
         return "AVVIST"
       } else {
         return status.toUpperCase();
