@@ -23,8 +23,10 @@
         <option value="Storsalen">Storsalen</option>
       </select>
     </div>
+    <div class="col-md-12">
+      <h2 ng-hide="((valgtScene == 'velg') && (valgtStatus == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
+    </div>
   </div>
-  <h2 ng-hide="((valgtScene == 'velg') && (valgtStatus == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
     <div class="row">
     <ul class="list-unstyled">
       <li ng-repeat="(key, value) in filtrertListe">
