@@ -59,17 +59,19 @@
                 <button class="btn btn-danger" ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="showAvvisForm = !showAvvisForm">Avvis</button>
                 <button class="btn btn-default" ng-show="((konsert.status == 'avvist_av_bookingsjef' || konsert.status == 'avvist_av_manager') && (showKommentar == false))" ng-click="showKommentar = !showKommentar">Vis kommentar</button>
                 <button class="btn btn-default" ng-show="((konsert.status == 'avvist_av_bookingsjef' || konsert.status == 'avvist_av_manager') && (showKommentar == true))" ng-click="showKommentar = !showKommentar">Skjul kommentar</button>
-            </div>
-            <form name="avvisForm" ng-show="showAvvisForm == true">
-              <br><br>
-              <div class="form-group" show-errors>
-                <label>Fyll ut hvorfor ikke: <input type="text" class="form-control" name="kommentar" ng-model="avvisning.kommentar" required /></label>
               </div>
-              <button ng-click="avvisBooking(key, avvisning.kommentar); filterFunction()" type="submit" ng-disabled="avvisForm.$invalid" class="btn btn-primary">Send avvisning</button>
-            </form>
-            <div class="col-lg-12" ng-show="showKommentar == true">
-              <h5><b>Kommentar: </b><i>{{konsert.kommentar_for_avvisning}}</i></h5>
-            </div>
+              <div class="col-md-12">
+                <form name="avvisForm" ng-show="showAvvisForm == true">
+                  <br>
+                  <div class="form-group" show-errors>
+                    <label>Fyll ut hvorfor ikke: <input type="text" class="form-control" name="kommentar" ng-model="avvisning.kommentar" required /></label>
+                  </div>
+                  <button ng-click="avvisBooking(key, avvisning.kommentar); filterFunction()" type="submit" ng-disabled="avvisForm.$invalid" class="btn btn-primary">Send avvisning</button>
+                </form>
+                <div class="col-lg-12" ng-show="showKommentar == true">
+                  <h5><b>Kommentar: </b><i>{{konsert.kommentar_for_avvisning}}</i></h5>
+                </div>
+              </div>
           </div>
         </li>
       </ul>
