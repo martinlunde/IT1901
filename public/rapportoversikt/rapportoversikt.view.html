@@ -28,7 +28,6 @@
     <option value="Knaus">Knaus</option>
     <option value="Storsalen">Storsalen</option>
   </select>
-  <input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()">Vis tidligere arrangementer
     <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
   <ul>
     <li ng-repeat="(key, value) in filtrertListe">
@@ -43,7 +42,7 @@
           <p><b>Status:</b> {{konsert.status}}</p>
 
             <div class="col-lg-2">
-              <a ng-click="hasRapportFunction(key); updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Se Rapport</button></a>
+              <a ng-show="konsert.har_rapport == true" ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Se Rapport</button></a>
             </div>
 
           <br>
@@ -55,7 +54,7 @@
 
 <div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
         <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
-            <div class="close-modal" data-dismiss="modal" ng-click="clearModalRapport()">
+            <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
                     </div>

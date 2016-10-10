@@ -37,7 +37,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > $scope.intToDateFunction(value.dato)))) {
+      } else if (((today < $scope.intToDateFunction(value.dato)))) {
         return false;
       }
       return true;
@@ -56,22 +56,9 @@
 
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
-      if($scope.hasRapport == true) {
+      if($scope.modalInformation.har_rapport == true) {
         $scope.modalRapport = $scope.mainRapporter[key];
       }
     }
-
-    $scope.hasRapportFunction = function(key) {
-      if(key in $scope.mainRapporter) {
-        $scope.hasRapport = true;
-      } else {
-        $scope.hasRapport = false;
-      }
-    }
-
-    $scope.clearModalRapport = function(){
-      $scope.modalRapport = null;
-    }
-
   }
 })();
