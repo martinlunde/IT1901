@@ -110,9 +110,16 @@
                         <div class="modalRapport" name="modalRapport" ng-show="showRapport == true">
                           <h3>RAPPORT</h3>
                           <br><br>
-                          <p><b>Publikumstall:</b> {{modalInformation.rapport.publikumstall}}</p>
-                          <p><b>Profitt:</b> {{modalInformation.rapport.profitt}}</p>
-                          <p><b>Tilleggskostnader:</b> {{modalInformation.rapport.tilleggskostnader}}</p>
+                          <h2>{{modalInformation.artist}}</h2>
+                          <h4>{{intToDateFunction(modalInformation.dato).toDateString()}}</h4>
+                          <br><br>
+                          <p><b>Antall medlemsbilletter:</b> {{modalInformation.rapport.solgte_billetter_medlem}} stk</p>
+                          <p><b>Antall ikke-medlemsbilletter:</b> {{modalInformation.rapport.solgte_billetter_ikke_medlem}} stk</p>
+                          <p><b>Scenekapasitet:</b>{{getSceneKapasitet(modalInformation.scene)}} stk</p>
+                          <p><b>Solgte billetter:</b> {{modalInformation.rapport.solgte_billetter_medlem+modalInformation.rapport.solgte_billetter_ikke_medlem}}/{{getSceneKapasitet(modalInformation.scene)}}</p>
+                          <p><b>Kostnad for booking:</b> {{modalInformation.kostnad}},-</p>
+                          <p><b>Tilleggskostnader:</b> {{modalInformation.rapport.tilleggskostnader}},-</p>
+                          <p><b>Fortjeneste:</b> {{modalInformation.rapport.profitt}},-</p>
                         </div>
                     </div>
                 </div>

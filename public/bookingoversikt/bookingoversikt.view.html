@@ -57,7 +57,7 @@
               <div class="col-lg-3">
                 <button class="btn btn-success" ng-show="(konsert.status == 'ubesvart') && (currentUserInformation.stilling == 'bookingsjef')" ng-click="updateBookingStatus(key, 'godkjent_av_bookingsjef'); filterFunction()">Godkjenn</button>
                 <button class="btn btn-danger" ng-show="(konsert.status == 'ubesvart') && (currentUserInformation.stilling == 'bookingsjef')" ng-click="showAvvisForm = !showAvvisForm">Avvis</button>
-                <button class="btn btn-success" ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="updateBookingStatus(key, 'aktiv'); filterFunction()">Legg til arrangemnent</button>
+                <button class="btn btn-success" ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="updateBookingStatus(key, 'aktiv'); filterFunction()">Legg til arrangement</button>
                 <button class="btn btn-danger" ng-show="(konsert.status == 'godkjent_av_bookingsjef') && (currentUserInformation.stilling == 'bookingansvarlig')" ng-click="showAvvisForm = !showAvvisForm">Avvis</button>
                 <button class="btn btn-default" ng-show="((konsert.status == 'avvist_av_bookingsjef' || konsert.status == 'avvist_av_manager') && (showKommentar == false))" ng-click="showKommentar = !showKommentar">Vis kommentar</button>
                 <button class="btn btn-default" ng-show="((konsert.status == 'avvist_av_bookingsjef' || konsert.status == 'avvist_av_manager') && (showKommentar == true))" ng-click="showKommentar = !showKommentar">Skjul kommentar</button>

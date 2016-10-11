@@ -73,6 +73,19 @@
       }
     }
 
+    $scope.getSceneKapasitet = function(scene) {
+      console.log(scene);
+      if(scene == 'Storsalen') {
+        return 1000;
+      } else if (scene == 'Edgar') {
+        return 210;
+      } else if (scene == 'Klubben') {
+        return 190;
+      } else if (scene == 'Knaus') {
+        return 100;
+        console.log(190);
+      }
+    }
 
   }
 })();
