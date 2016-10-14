@@ -4,8 +4,8 @@
   angular.module("angularAuth")
   .controller("rapportoversiktCtrl", rapportoversiktCtrl);
 
-  rapportoversiktCtrl.$inject = ["$scope", "FirebaseService"];
-  function rapportoversiktCtrl($scope, FirebaseService) {
+  arrangementerCtrl.$inject = ["$scope", "FirebaseService", "SpotifyService"];
+  function arrangementerCtrl($scope, FirebaseService, SpotifyService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -29,6 +29,8 @@
 
     $scope.isValidFilter = function(value) {
       var today = new Date();
+      var date = $scope.intToDateFunction(value.dato);
+      date.setHours(parseInt(value.tid.substring(0,2)));
       if(value.status != 'aktiv') {
         return false;
       } else if (($scope.searchingString != undefined) && (value.artist.toLowerCase().indexOf($scope.searchingString.toLowerCase()) == -1)){
@@ -37,7 +39,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > $scope.intToDateFunction(value.dato)))) {
+      } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
       }
       return true;
@@ -56,8 +58,11 @@
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
       if($scope.hasRapport == true) {
-        $scope.modalRapport = $scope.mainRapporter[key];
+        $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
+      SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
+        $scope.modalInformation.spotifyData = data;
+      })
     }
 
     $scope.hasRapportFunction = function(key) {
@@ -68,6 +73,19 @@
       }
     }
 
+    $scope.getSceneKapasitet = function(scene) {
+      console.log(scene);
+      if(scene == 'Storsalen') {
+        return 1000;
+      } else if (scene == 'Edgar') {
+        return 210;
+      } else if (scene == 'Klubben') {
+        return 190;
+      } else if (scene == 'Knaus') {
+        return 100;
+        console.log(190);
+      }
+    }
 
   }
 })();

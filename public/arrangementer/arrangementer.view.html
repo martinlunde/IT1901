@@ -1,4 +1,4 @@
-<div class="col-md-12 fontFamily">
+<div class="col-md-12 fontFamily" id="arrangementer">
   <div class="row">
     <div class="col-md-12">
       <h1>Arrangementer</h1>
@@ -32,10 +32,13 @@
         <option value="Knaus">Knaus</option>
         <option value="Storsalen">Storsalen</option>
       </select>
-  <input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()">Vis tidligere arrangementer
+      <input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()"> Inkluder tidligere arrangementer
+    </div>
+    <div class="col-md-12">
+      <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
+    </div>
   </div>
 
-  <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
 
   <div class="row">
   <ul class="list-unstyled">
@@ -47,7 +50,7 @@
       </div>
       <ul class="list-unstyled">
         <li ng-repeat="(key, konsert) in value" ng-init="showAvvisForm = false">
-          <div class="row pFontSize">
+          <div class="row pFontSize bookingoObject">
               <div class="col-lg-3 alignMiddle border-Right">
                 <p>{{konsert.artist}}</p>
               </div>
@@ -71,7 +74,7 @@
     </ul>
   </div>
 <div class="item-modal modal fade" ng-blur="showRapport = false" id="information-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="showRapport = false">
-        <div class="modal-content" style="width:75%; height: 75%; margin: auto;"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
+        <div class="modal-content col-md-10 col-md-offset-1"> <!-- FJERN CSS NÅR EKSTERN CSS-FIL LEGGES TIL -->
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
@@ -80,26 +83,46 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="modal-body">
-                          <h2>INFORMASJON:</h2>
-                          <p><b>Artist:</b> {{modalInformation.artist}}</p>
-                          <p><b>Scene:</b> {{modalInformation.scene}}</p>
-                          <p><b>Tid:</b> {{modalInformation.tid}}</p>
-                          <p><b>Billettpris:</b> {{modalInformation.billettpris}}</p>
-                          <p><b>Sjanger:</b> {{modalInformation.sjanger}}</p>
-                          <p><b>Status:</b> {{modalInformation.status}}</p>
+                    <div class="col-md-12">
+                        <div class="modal-body arrangementerModal">
+                          <h2><b>{{modalInformation.artist}}</b></h2>
+                          <div class="col-md-12">
+                            <div class="col-md-6">
+                              <img src="{{modalInformation.spotifyData.images[0].url}}" alt="Bilde av {{modalInformation.artist}}" style="height: 400px; width: 400px;" class="img-responsive img-rounded img-centered">
+                            </div>
+                            <div class="col-md-6" style="margin: auto 0;">
+                              <p><b>Dato:</b> {{intToDateFunction(modalInformation.dato).toDateString()}}</p>
+                              <p><b>Tid:</b> {{modalInformation.tid}}</p>
+                              <p><b>Scene:</b> {{modalInformation.scene}}</p>
+                              <p><b>Billettpris:</b> {{modalInformation.pris_medlem}},- / {{modalInformation.pris_ikke_medlem}},-</p>
+                              <p><b>Popularitet:</b> {{modalInformation.spotifyData.popularity}}/100</p>
+                              <p><b>Sjanger:</b> <span ng-repeat="sjanger in modalInformation.sjanger" style="text-transform: capitalize;">{{sjanger}}, </span></p>
+                              <p><b>Aldersgrense:</b> {{modalInformation.aldersgrense}}</p>
+                              <p><b>Booket av:</b> {{mainBrukere[modalInformation.bookingansvarlig].navn}}</p>
+                              <p><b>Kostnad:</b> {{modalInformation.kostnad}},-</p>
+                              <p><b>Teknikere:</b> <span ng-repeat="tekniker in modalInformation.teknikere" style="text-transform: capitalize;">{{mainBrukere[tekniker].navn}}, </span></p>
+                            </div>
+                          </div>
                           <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>
                           <button type="button" class="btn btn-default" ng-show="hasRapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
+                          <button type="button" class="btn btn-default" ng-show="hasRapport == false" disabled="true">Legg til rapport</button>
+                        </div>
+                        <div class="modalRapport" name="modalRapport" ng-show="showRapport == true">
+                          <h3>RAPPORT</h3>
+                          <br><br>
+                          <h2>{{modalInformation.artist}}</h2>
+                          <h4>{{intToDateFunction(modalInformation.dato).toDateString()}}</h4>
+                          <br><br>
+                          <p><b>Antall medlemsbilletter:</b> {{modalInformation.rapport.solgte_billetter_medlem}} stk</p>
+                          <p><b>Antall ikke-medlemsbilletter:</b> {{modalInformation.rapport.solgte_billetter_ikke_medlem}} stk</p>
+                          <p><b>Scenekapasitet:</b>{{getSceneKapasitet(modalInformation.scene)}} stk</p>
+                          <p><b>Solgte billetter:</b> {{modalInformation.rapport.solgte_billetter_medlem+modalInformation.rapport.solgte_billetter_ikke_medlem}}/{{getSceneKapasitet(modalInformation.scene)}}</p>
+                          <p><b>Kostnad for booking:</b> {{modalInformation.kostnad}},-</p>
+                          <p><b>Tilleggskostnader:</b> {{modalInformation.rapport.tilleggskostnader}},-</p>
+                          <p><b>Fortjeneste:</b> {{modalInformation.rapport.profitt}},-</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div name="modalRapport" ng-show="showRapport == true" style="border: 1px dotted black; width: 800px; height: 800px; margin: 20px auto;">
-              <h2>Rapport:</h2>
-              <p><b>Publikumstall:</b> {{modalRapport.publikumstall}}</p>
-              <p><b>profitt:</b> {{modalRapport.profitt}}</p>
-              <p><b>tilleggskostnader:</b> {{modalRapport.tilleggskostnader}}</p>
             </div>
         </div>
     </div>
