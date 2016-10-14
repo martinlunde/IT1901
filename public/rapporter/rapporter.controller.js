@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("rapportoversiktCtrl", rapportoversiktCtrl);
+  .controller("rapporterCtrl", rapporterCtrl);
 
-  rapportoversiktCtrl.$inject = ["$scope", "FirebaseService"];
-  function rapportoversiktCtrl($scope, FirebaseService) {
+  rapporterCtrl.$inject = ["$scope", "FirebaseService"];
+  function rapporterCtrl($scope, FirebaseService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -74,6 +74,6 @@
       }
     }
 
-    
+
   }
 })();

@@ -60,10 +60,10 @@
         }
       });
 
-      $routeProvider.when("/bookingoversikt", {
-        templateUrl : "bookingoversikt/bookingoversikt.view.html",
-        controller : "bookingoversiktCtrl",
-        controllerAs : "bookingoversiktController",
+      $routeProvider.when("/bookinger", {
+        templateUrl : "bookinger/bookinger.view.html",
+        controller : "bookingerCtrl",
+        controllerAs : "bookingerController",
         resolve: {
           // controller will not be loaded until $waitForSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below
@@ -74,10 +74,10 @@
         }
       });
 
-      $routeProvider.when("/rapportoversikt", {
-        templateUrl : "rapportoversikt/rapportoversikt.view.html",
-        controller : "rapportoversiktCtrl",
-        controllerAs : "rapportoversiktController",
+      $routeProvider.when("/rapporter", {
+        templateUrl : "rapporter/rapporter.view.html",
+        controller : "rapporterCtrl",
+        controllerAs : "rapporterController",
         resolve: {
           // controller will not be loaded until $waitForSignIn resolves
           // Auth refers to our $firebaseAuth wrapper in the factory below

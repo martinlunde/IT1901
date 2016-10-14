@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("bookingoversiktCtrl", bookingoversiktCtrl);
+  .controller("bookingerCtrl", bookingerCtrl);
 
-  bookingoversiktCtrl.$inject = ["$scope", "FirebaseService"];
-  function bookingoversiktCtrl($scope, FirebaseService) {
+  bookingerCtrl.$inject = ["$scope", "FirebaseService"];
+  function bookingerCtrl($scope, FirebaseService) {
 
     $scope.valgtStatus = "velg";
     $scope.valgtScene = "velg";
