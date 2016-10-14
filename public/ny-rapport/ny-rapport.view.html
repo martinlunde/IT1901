@@ -1,0 +1,91 @@
+<div id="ny-booking" class="col-md-12 view-container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-md-12">
+            <h3>Legg til rapport</h3>
+            <hr>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="Search for booking">Søk</label>
+            <input type="text" class="form-control" placeholder="Søk etter booking" name="name" ng-model="searchingString" ng-change="filterFunction()"/>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-12" style="padding: 0px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.2);" ng-repeat="(key,booking) in filtrertListe | limitTo:15">
+            <div class="col-md-4">
+              <img style="margin: auto;" src="{{booking.imgUrl}}" alt="" height="100px"/>
+            </div>
+            <div class="col-md-6" style="margin-top: 10px;">
+              <p><b>Navn:</b> {{booking.artist}}</p>
+              <p><b>Dato:</b> {{intToDateFunction(booking.dato).toDateString()}}</p>
+              <p><b>Scene:</b> {{booking.scene}}</p>
+            </div>
+            <div class="col-md-2">
+              <a ng-click="emptyFormData(); updateFormData(key, booking)" href="#form-modal" target="_self" class="modal-link" data-toggle="modal"><button style="margin-top: 30px;" type="button" class="btn btn-danger">Legg til rapport</button></a>
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false">
+        <div class="modal-content col-md-10 col-md-offset-1">
+            <div class="close-modal" data-dismiss="modal" ng-click="emptyFormData(); skjema_sendt = false">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div id="usendt_booking_innhold" class="container" ng-show="!skjema_sendt">
+              <div class="row">
+                <h3>LEGG TIL RAPPORT</h3>
+                <br><br>
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="col-md-6">
+                    <img src="{{formData.imgUrl}}" class="img-responsive img-rounded img-centered" alt="" style="height:200px;">
+                  </div>
+                  <div class="col-md-6" style="padding-top: 40px;">
+                    <p><b>Artist: </b>{{formData.artist}}</p>
+                    <p><b>Dato: </b>{{intToDateFunction(formData.dato).toDateString()}}</p>
+                    <p><b>Tid: </b>{{formData.tid}}</p>
+                    <p><b>Scene: </b>{{formData.scene}}</p>
+                  </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-left">
+                  <form name="bookingForm">
+                    <div class="col-md-12">
+                      <div class="form-group" show-errors>
+                        <label>Solgte billetter (Medlem): </label><input type="number" class="form-control" name="aldersgrense" ng-model="formData.solgte_billetter_medlem" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Solgte billetter (Ikke medlem): </label><input type="number" class="form-control" name="billettpris_medlem" ng-model="formData.solgte_billetter_ikke_medlem" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Tilleggskostnader: </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="formData.tilleggskostnader" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Profitt: </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="formData.profitt" required />
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-md-offset-5">
+                      <br>
+                      <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-primary">Send rapport</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="sendt_booking_innhold" class="container" ng-show="skjema_sendt">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <h2>Rapporten er sendt for godkjennelse!</h2>
+                  <h2><small>Rapporten vil stå som <i>UBESVART</i> inntil bookingsjef har svart.</small></h2>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
