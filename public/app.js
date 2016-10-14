@@ -74,6 +74,34 @@
         }
       });
 
+      $routeProvider.when("/rapportoversikt", {
+        templateUrl : "rapportoversikt/rapportoversikt.view.html",
+        controller : "rapportoversiktCtrl",
+        controllerAs : "rapportoversiktController",
+        resolve: {
+          // controller will not be loaded until $waitForSignIn resolves
+          // Auth refers to our $firebaseAuth wrapper in the factory below
+          "currentAuth": ["Auth", function(Auth) {
+            // $waitForSignIn returns a promise so the resolve waits for it to complete
+            return Auth.$requireSignIn();
+          }]
+        }
+      });
+
+      $routeProvider.when("/ny-rapport", {
+        templateUrl : "ny-rapport/ny-rapport.view.html",
+        controller : "nyRapportCtrl",
+        controllerAs : "nyRapportController",
+        resolve: {
+          // controller will not be loaded until $waitForSignIn resolves
+          // Auth refers to our $firebaseAuth wrapper in the factory below
+          "currentAuth": ["Auth", function(Auth) {
+            // $waitForSignIn returns a promise so the resolve waits for it to complete
+            return Auth.$requireSignIn();
+          }]
+        }
+      });
+
       $routeProvider.otherwise({ redirectTo: '/' });
 
     }
@@ -172,10 +200,13 @@
         $scope.mainRapporter = snapshot.val();
       });
 
+      firebase.database().ref("/bookinger/").on("value", function(snapshot) {
+        $scope.mainBookingerUsortert = snapshot.val();
+      });
+
       firebase.database().ref("/brukere/").on("value", function(snapshot) {
         $scope.mainBrukere = snapshot.val();
       });
-
 
 
     }

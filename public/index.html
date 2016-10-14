@@ -50,6 +50,8 @@
               <ul>
                 <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingsjef') || (currentUserInformation.stilling == 'bookingansvarlig'))"><a href="/#/bookingoversikt">Bookingoversikt</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/ny-booking">+ Ny booking</a></li>
+                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/rapportoversikt">Rapporter</a></li>
+                <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'arrangør'))"><a href="/#/ny-rapport">+ Ny rapport</a></li>
               </ul>
             </nav>
           </div>
@@ -79,6 +81,8 @@
     <script src="login/login.controller.js" charset="utf-8"></script>
     <script src="ny-booking/ny-booking.controller.js" charset="utf-8"></script>
     <script src="bookingoversikt/bookingoversikt.controller.js" charset="utf-8"></script>
+     <script src="rapportoversikt/rapportoversikt.controller.js" charset="utf-8"></script>
+     <script src="ny-rapport/ny-rapport.controller.js" charset="utf-8"></script>
     <script src="js/services/firebase.service.js" charset="utf-8"></script>
     <script src="js/services/spotify.service.js" charset="utf-8"></script>
   </body>

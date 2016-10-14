@@ -2,10 +2,10 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("arrangementerCtrl", arrangementerCtrl);
+  .controller("rapportoversiktCtrl", rapportoversiktCtrl);
 
-  arrangementerCtrl.$inject = ["$scope", "FirebaseService", "SpotifyService"];
-  function arrangementerCtrl($scope, FirebaseService, SpotifyService) {
+  rapportoversiktCtrl.$inject = ["$scope", "FirebaseService"];
+  function rapportoversiktCtrl($scope, FirebaseService) {
 
     $scope.valgtSjanger = "velg";
     $scope.valgtScene = "velg";
@@ -29,8 +29,6 @@
 
     $scope.isValidFilter = function(value) {
       var today = new Date();
-      var date = $scope.intToDateFunction(value.dato);
-      date.setHours(parseInt(value.tid.substring(0,2)));
       if(value.status != 'aktiv') {
         return false;
       } else if (($scope.searchingString != undefined) && (value.artist.toLowerCase().indexOf($scope.searchingString.toLowerCase()) == -1)){
@@ -39,7 +37,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
+      } else if (((today < $scope.intToDateFunction(value.dato)))) {
         return false;
       }
       return true;
@@ -57,34 +55,13 @@
 
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
-      if(konsert.har_rapport == true) {
+      if($scope.modalInformation.har_rapport == true) {
         $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
-      SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
-        $scope.modalInformation.spotifyData = data;
-      })
-    }
-
-    $scope.dateHasPassed = function(booking) {
-      if(booking == undefined) {
-        return false;
-      }
-      var today = new Date();
-      var date = $scope.intToDateFunction(booking.dato);
-      date.setHours(parseInt(booking.tid.substring(0,2)));
-      if (date < today) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    $scope.changePage = function(url) {
-      $('.modal .close-modal').click();
-      document.location.href = url;
     }
 
     $scope.getSceneKapasitet = function(scene) {
+      console.log(scene);
       if(scene == 'Storsalen') {
         return 1000;
       } else if (scene == 'Edgar') {
@@ -97,5 +74,6 @@
       }
     }
 
+    
   }
 })();
