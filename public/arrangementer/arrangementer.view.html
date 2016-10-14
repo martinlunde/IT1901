@@ -65,7 +65,7 @@
                 <p>{{konsert.pris_medlem}},- / {{konsert.pris_ikke_medlem}},-</p>
               </div>
               <div class="col-lg-2">
-                <a ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Oversikt</button></a>
+                <a ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-samfundet">Oversikt</button></a>
               </div>
             </div>
           </li>
@@ -103,9 +103,9 @@
                               <p><b>Teknikere:</b> <span ng-repeat="tekniker in modalInformation.teknikere" style="text-transform: capitalize;">{{mainBrukere[tekniker].navn}}, </span></p>
                             </div>
                           </div>
-                          <button type="button" class="btn btn-default" ng-show="modalInformation.har_rapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>
-                          <button type="button" class="btn btn-default" ng-show="modalInformation.har_rapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
-                          <button ng-click="changePage('/#/ny-rapport')" type="button" class="btn btn-default" ng-show="(currentUserInformation.stilling == 'bookingansvarlig' || currentUserInformation.stilling == 'arrangør') && modalInformation.har_rapport == false && dateHasPassed(modalInformation)">Legg til rapport</button>
+                          <button type="button" class="btn btn-samfundet" ng-show="modalInformation.har_rapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>
+                          <button type="button" class="btn btn-samfundet" ng-show="modalInformation.har_rapport == true && showRapport == true;" ng-click="showRapport = !showRapport">Skjul rapport</button>
+                          <button ng-click="changePage('/#/ny-rapport')" type="button" class="btn btn-samfundet" ng-show="(currentUserInformation.stilling == 'bookingansvarlig' || currentUserInformation.stilling == 'arrangør') && modalInformation.har_rapport == false && dateHasPassed(modalInformation)">Legg til rapport</button>
                         </div>
                         <div class="modalRapport" name="modalRapport" ng-show="showRapport == true">
                           <h3>RAPPORT</h3>

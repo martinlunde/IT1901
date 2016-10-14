@@ -252,23 +252,23 @@ a:focus {
   border-radius: 0;
 }
 
+.btn-samfundet {
+  color: white;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 0;
+  background-color: #a03033;
+}
+
+.btn-samfundet:hover {
+  background-color: #401314;
+  color: white;
+}
+
 /*Arrangementer*/
 .arrangementerModal .col-md-12 {
   padding-top: 80px;
-}
-
-#arrangementer button {
-  background-color: #ba202c;
-  color: white;
-
-}
-#arrangementer button:hover {
-  background-color: #401314;
-}
-
-.arrangementerModal button {
-  border-radius: 0;
-  margin-top: 50px;
 }
 
 .arrangementerModal div {
