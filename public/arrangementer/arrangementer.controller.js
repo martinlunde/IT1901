@@ -2,7 +2,7 @@
   "use strict";
 
   angular.module("angularAuth")
-  .controller("rapportoversiktCtrl", rapportoversiktCtrl);
+  .controller("arrangementerCtrl", arrangementerCtrl);
 
   arrangementerCtrl.$inject = ["$scope", "FirebaseService", "SpotifyService"];
   function arrangementerCtrl($scope, FirebaseService, SpotifyService) {
