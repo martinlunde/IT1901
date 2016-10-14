@@ -37,7 +37,7 @@
         return false;
       } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
         return false;
-      } else if ((($scope.visTidligereArrangementer != true) && (today > $scope.intToDateFunction(value.dato)))) {
+      } else if (((today < $scope.intToDateFunction(value.dato)))) {
         return false;
       }
       return true;
@@ -52,5 +52,28 @@
       var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
       return dato;
     }
+
+    $scope.updateModal = function(key, konsert) {
+      $scope.modalInformation = konsert;
+      if($scope.modalInformation.har_rapport == true) {
+        $scope.modalInformation.rapport = $scope.mainRapporter[key];
+      }
+    }
+
+    $scope.getSceneKapasitet = function(scene) {
+      console.log(scene);
+      if(scene == 'Storsalen') {
+        return 1000;
+      } else if (scene == 'Edgar') {
+        return 210;
+      } else if (scene == 'Klubben') {
+        return 190;
+      } else if (scene == 'Knaus') {
+        return 100;
+        console.log(190);
+      }
+    }
+
+    
   }
 })();
