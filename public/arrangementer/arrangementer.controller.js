@@ -57,7 +57,7 @@
 
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
-      if($scope.hasRapport == true) {
+      if(konsert.har_rapport == true) {
         $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
       SpotifyService.getArtist(konsert.spotify_id).then(function(data) {
@@ -65,16 +65,26 @@
       })
     }
 
-    $scope.hasRapportFunction = function(key) {
-      if(key in $scope.mainRapporter) {
-        $scope.hasRapport = true;
+    $scope.dateHasPassed = function(booking) {
+      if(booking == undefined) {
+        return false;
+      }
+      var today = new Date();
+      var date = $scope.intToDateFunction(booking.dato);
+      date.setHours(parseInt(booking.tid.substring(0,2)));
+      if (date < today) {
+        return true;
       } else {
-        $scope.hasRapport = false;
+        return false;
       }
     }
 
+    $scope.changePage = function(url) {
+      $('.modal .close-modal').click();
+      document.location.href = url;
+    }
+
     $scope.getSceneKapasitet = function(scene) {
-      console.log(scene);
       if(scene == 'Storsalen') {
         return 1000;
       } else if (scene == 'Edgar') {
