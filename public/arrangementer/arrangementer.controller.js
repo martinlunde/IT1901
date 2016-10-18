@@ -37,12 +37,21 @@
         return false;
       } else if ((value.scene != $scope.valgtScene && $scope.valgtScene != "velg")) {
         return false;
-      } else if((value.sjanger.indexOf($scope.valgtSjanger) == -1) && ($scope.valgtSjanger != "velg")) {
+      } else if(($scope.valgtSjanger != "velg") && ($scope.isValidSjanger(value.sjanger) == false)){
         return false;
       } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
       }
       return true;
+    }
+
+    $scope.isValidSjanger = function(sjangere){
+      for (var element in sjangere) {
+        if (sjangere[element].split(" ").indexOf($scope.valgtSjanger) != -1) {
+          return true;
+        }
+      }
+      return false;
     }
 
     $scope.$watch('mainBookinger', function() {
