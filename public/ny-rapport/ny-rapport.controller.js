@@ -43,7 +43,8 @@
         solgte_billetter_medlem : $scope.formData.solgte_billetter_medlem,
         solgte_billetter_ikke_medlem : $scope.formData.solgte_billetter_ikke_medlem,
         status : "ubesvart",
-        tilleggskostnader : $scope.formData.tilleggskostnader
+        tilleggskostnader : $scope.formData.tilleggskostnader,
+        kommentar : $scope.formData.kommentar
       });
       firebase.database().ref().child('bookinger').child($scope.formData.key).update({
         har_rapport : true
@@ -61,12 +62,8 @@
     });
 
     $scope.updateFormData = function(key, booking) {
-      $scope.formData = booking;
+      $scope.formData = JSON.parse(JSON.stringify(booking));
       $scope.formData.key = key;
-    }
-
-    $scope.emptyFormData = function() {
-      $scope.formData = {};
     }
 
     $scope.intToDateFunction = function(tall) {
