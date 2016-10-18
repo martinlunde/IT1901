@@ -57,16 +57,19 @@
                   <form name="bookingForm">
                     <div class="col-md-12">
                       <div class="form-group" show-errors>
-                        <label>Solgte billetter (Medlem): </label><input type="number" class="form-control" name="aldersgrense" ng-model="formData.solgte_billetter_medlem" required />
+                        <label>Solgte billetter (Medlem): </label><input type="number" min="0" class="form-control" name="solgte_billetter_medlem" ng-model="formData.solgte_billetter_medlem" required />
                       </div>
                       <div class="form-group" show-errors>
-                        <label>Solgte billetter (Ikke medlem): </label><input type="number" class="form-control" name="billettpris_medlem" ng-model="formData.solgte_billetter_ikke_medlem" required />
+                        <label>Solgte billetter (Ikke medlem): </label><input type="number" min="0" class="form-control" name="solgte_billetter_ikke_medlemm" ng-model="formData.solgte_billetter_ikke_medlem" required />
                       </div>
                       <div class="form-group" show-errors>
-                        <label>Tilleggskostnader: </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="formData.tilleggskostnader" required />
+                        <label>Tilleggskostnader: </label><input type="number" class="form-control" min="0" name="tilleggskostnader" ng-model="formData.tilleggskostnader" required />
                       </div>
                       <div class="form-group" show-errors>
-                        <label>Profitt: </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="formData.profitt" required />
+                        <label>Profitt: </label><input type="number" class="form-control" name="profitt" ng-model="formData.profitt" required />
+                      </div>
+                      <div class="form-group" show-errors>
+                        <label>Kommentar: </label><textarea type="text" rows="4" class="form-control" name="kommentar" ng-model="formData.kommentar" /></textarea>
                       </div>
                     </div>
                     <div class="col-md-12 col-md-offset-5">
