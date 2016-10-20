@@ -47,7 +47,7 @@
 
     $scope.isValidSjanger = function(sjangere){
       for (var element in sjangere) {
-        if (sjangere[element].split(" ").indexOf($scope.valgtSjanger) != -1) {
+        if (sjangere[element].toLowerCase().split(" ").indexOf($scope.valgtSjanger) != -1) {
           return true;
         }
       }
