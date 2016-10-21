@@ -102,6 +102,13 @@
         }
       });
 
+      $routeProvider.when("/referanse", {
+        templateUrl : "referanse/referanse.view.html",
+        controller : "referanseCtrl",
+        controllerAs : "referanceController",
+        
+      });
+
       $routeProvider.otherwise({ redirectTo: '/' });
 
     }

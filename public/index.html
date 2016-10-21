@@ -52,6 +52,7 @@
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/ny-booking">+ Ny booking</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/rapporter">Rapporter</a></li>
                 <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'arrangør'))"><a href="/#/ny-rapport">+ Ny rapport</a></li>
+                <li><a href="/#/referanse">Finn booking</a></li>
               </ul>
             </nav>
           </div>
@@ -81,8 +82,9 @@
     <script src="login/login.controller.js" charset="utf-8"></script>
     <script src="ny-booking/ny-booking.controller.js" charset="utf-8"></script>
     <script src="bookinger/bookinger.controller.js" charset="utf-8"></script>
-     <script src="rapporter/rapporter.controller.js" charset="utf-8"></script>
-     <script src="ny-rapport/ny-rapport.controller.js" charset="utf-8"></script>
+    <script src="rapporter/rapporter.controller.js" charset="utf-8"></script>
+    <script src="ny-rapport/ny-rapport.controller.js" charset="utf-8"></script>
+    <script src="referanse/referanse.controller.js" charset="utf-8"></script>
     <script src="js/services/firebase.service.js" charset="utf-8"></script>
     <script src="js/services/spotify.service.js" charset="utf-8"></script>
   </body>

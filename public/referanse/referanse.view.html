@@ -1,0 +1,77 @@
+<div class="col-md-12 fontFamily" id="arrangementer" ng-init="showBooking = false">
+  <div class="row">
+    <div class="col-md-12" id="serchingSite" style="margin-top: 10%;" ng-show="showBooking == false">
+      <div class="col-md-8 col-md-offset-2">
+          <h3 style="text-align: center;">Finn booking</h3>
+          <hr>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="form-group col-md-10">
+          <label for="Search for booking">Søk</label>
+          <input type="text" class="form-control" name="id" ng-focus="objectNotFound = false" ng-model="searchText"/>
+        </div>
+        <div class="col-md-2">
+          <br>
+          <button type="button" class="btn btn-samfundet" ng-click="findBooking()">SØK</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <h6 ng-show="objectNotFound">Det finnes ingen bookinger i vår database med ID "{{searchText}}".</h6>
+      </div>
+    </div>
+    <div class="col-md-12" id="bookingSite" style="margin-top: 10%;" ng-show="showBooking == true">
+      <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+        <div class="col-md-12" style="margin-bottom: 20px;">
+          <h4>TEKNISKE DETALJER FOR KONSERT</h4>
+          <hr>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <img class="img-responsive img-rounded img-centered" src="{{booking.imgUrl}}" alt="bilde av {{booking.artist}}" style="height: 200px;"/>
+          </div>
+          <div class="col-md-6" style="text-align: left; padding-top: 30px;">
+            <p><b>Artist: </b>{{booking.artist}}</p>
+            <p><b>Dato: </b>{{intToDateFunction(booking.dato).toDateString()}}</p>
+            <p><b>Tid: </b>{{booking.tid}}</p>
+            <p><b>Scene: </b>{{booking.scene}}</p>
+          </div>
+        </div>
+        <div class="col-md-12" ng-hide="true">
+          <hr>
+          <div class="col-md-6" style="text-align: left; border-right: 1px solid #eee;">
+            <h3 style="text-align: center;">Tekniker:</h3>
+            <br>
+            <p><b>Navn:</b>{{mainBrukere[booking.teknikere[0]].navn}}</p>
+            <p><b>E-mail: </b>{{mainBrukere[booking.teknikere[0]].email}}</p>
+            <p><b>Telefon: </b>{{mainBrukere[booking.teknikere[0]].telefon}}</p>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <hr>
+          <h3>Tekniske krav:</h3>
+          <li ng-repeat="(key, value) in booking.tekniske_behov">
+            <div class="">
+              <p style="display: inline-block;"><b>{{key+1}}.</b>   {{value}}</p>
+              <img src="img/trash-icon.png" alt="" style="display: inline-block;" height="40px" width="40px;" />
+            </div>
+          </li>
+          <li ng-show="booking.hasOwnProperty('tekniske_behov') == false">Ingen tekniske behov lagt til for denne konserten.</li>
+          <form name="bookingForm" style="text-align: left;">
+            <div class="form-group col-md-8">
+              <label for="Legg til krav">Krav:</label>
+              <input type="text" class="form-control" name="name" ng-model="newTask" required>
+            </div>
+            <div class="col-md-4">
+              <br>
+              <button type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-samfundet">Legg til nytt teknisk krav</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-12">
+            <br><br>
+            <button type="button" class="btn btn-samfundet" style="display: block; margin: auto;" ng-click="resetBooking()">Tilbake</button>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
