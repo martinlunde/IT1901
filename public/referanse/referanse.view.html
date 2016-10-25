@@ -36,7 +36,7 @@
             <p><b>Scene: </b>{{booking.scene}}</p>
           </div>
         </div>
-        <div class="col-md-12" ng-hide="true">
+        <div class="col-md-12" ng-hide="false">
           <hr>
           <div class="col-md-6" style="text-align: left; border-right: 1px solid #eee;">
             <h3 style="text-align: center;">Tekniker:</h3>
@@ -50,20 +50,20 @@
           <hr>
           <h3>Tekniske krav:</h3>
           <li ng-repeat="(key, value) in booking.tekniske_behov">
-            <div class="">
-              <p style="display: inline-block;"><b>{{key+1}}.</b>   {{value}}</p>
-              <img src="img/trash-icon.png" alt="" style="display: inline-block;" height="40px" width="40px;" />
+            <div class="colonne">
+              <p style="display: inline-block;"><b></b>   {{value}}</p>
+              <a ng-click="removeTekniskBehov(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </div>
           </li>
           <li ng-show="booking.hasOwnProperty('tekniske_behov') == false">Ingen tekniske behov lagt til for denne konserten.</li>
-          <form name="bookingForm" style="text-align: left;">
+          <form name="tekniske_behov_form" style="text-align: left;">
             <div class="form-group col-md-8">
               <label for="Legg til krav">Krav:</label>
-              <input type="text" class="form-control" name="name" ng-model="newTask" required>
+              <input type="text" class="form-control" name="name" ng-model="tekniske_behov_form.nyttKrav" required>
             </div>
             <div class="col-md-4">
               <br>
-              <button type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-samfundet">Legg til nytt teknisk krav</button>
+              <button type="submit" ng-disabled="tekniske_behov_form.$invalid" ng-click="addTekniskBehov(tekniske_behov_form.nyttKrav)" class="btn btn-samfundet">Legg til nytt teknisk krav</button>
             </div>
           </form>
         </div>

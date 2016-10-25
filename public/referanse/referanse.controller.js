@@ -9,7 +9,8 @@
 
     $scope.findBooking = function() {
       if($scope.searchText in $scope.mainBookingerUsortert && $scope.mainBookingerUsortert[$scope.searchText].status == 'aktiv') {
-        $scope.booking = $scope.mainBookingerUsortert[$scope.searchText]
+        $scope.booking = JSON.parse(JSON.stringify($scope.mainBookingerUsortert[$scope.searchText]));
+		$scope.booking.key = $scope.searchText
         SpotifyService.getArtist($scope.booking.spotify_id).then(function(data) {
                 $scope.booking.imgUrl = data.images[0].url;
               });
@@ -25,6 +26,24 @@
       $scope.booking = {};
       $scope.searchText = "";
     }
+	
+	$scope.oppdaterDatabase = function() {
+		console.log("Oppdaterer: " + $scope.booking.key);
+		firebase.database().ref().child('bookinger').child($scope.booking.key).update({
+			tekniske_behov : $scope.booking.tekniske_behov
+		  });
+	}
+	
+	$scope.addTekniskBehov = function(krav) {
+		$scope.booking.tekniske_behov.push(krav);
+		$scope.oppdaterDatabase();
+	}
+	
+	$scope.removeTekniskBehov = function(key){
+		$scope.booking.tekniske_behov.pop(key);
+		console.log(key)
+		$scope.oppdaterDatabase();
+	}
 
     $scope.intToDateFunction = function(tall) {
       tall = String(tall);
