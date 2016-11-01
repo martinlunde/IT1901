@@ -342,3 +342,6 @@ a:focus {
  .alignLeft {
    text-align: left;
  }
+ .changeSize {
+   font-size: 24px;
+ }
