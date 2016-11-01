@@ -41,6 +41,8 @@
         return false;
       } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
+      } else if (($scope.visMineArrangementer == true) && ((value.teknikere == undefined) || (value.teknikere.indexOf($scope.currentUser.uid) == -1))) {
+        return false;
       }
       return true;
     }
@@ -66,6 +68,7 @@
 
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
+      $scope.modalInformation.key = key;
       if(konsert.har_rapport == true) {
         $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
