@@ -1,5 +1,5 @@
 <div class="col-md-12 fontFamily" id="arrangementer">
-  <div class="row">
+  <div class="row" ng-init="(currentUserInformation.stilling == 'tekniker') ? visMineArrangementer = true : visMineArrangementer = false;">
     <div class="col-md-12">
       <h1>Arrangementer</h1>
       <input id="search" class="form-control italic" name="search" placeholder="Søk i arrangementer" type="search" ng-model="searchingString" ng-change="filterFunction()">
@@ -33,7 +33,8 @@
         <option value="Knaus">Knaus</option>
         <option value="Storsalen">Storsalen</option>
       </select>
-      <input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()"> Inkluder tidligere arrangementer
+      <span style="margin-right: 5px;"><input type="checkbox" name="vehicle" ng-model="visTidligereArrangementer" ng-change="filterFunction()"><text> Inkluder tidligere arrangementer</text></span>
+      <span ng-show="(currentUserInformation.stilling == 'tekniker')"><input type="checkbox" name="vehicle" ng-model="visMineArrangementer" ng-change="filterFunction()"><text> Vis bare mine arrangementer</text></span>
     </div>
     <div class="col-md-12">
       <h2 ng-hide="((valgtScene == 'velg') && (valgtSjanger == 'velg') && ((searchingString == undefined) || (searchingString == '')))">Søkeresultat</h2>
@@ -92,6 +93,7 @@
                               <img src="{{modalInformation.spotifyData.images[0].url}}" alt="Bilde av {{modalInformation.artist}}" style="height: 400px; width: 400px;" class="img-responsive img-rounded img-centered">
                             </div>
                             <div class="col-md-6" style="margin: auto 0;">
+                              <p ng-show="(currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'bookingsjef')"><b>ID:</b> {{modalInformation.key}}</p>
                               <p><b>Dato:</b> {{intToDateFunction(modalInformation.dato).toDateString()}}</p>
                               <p><b>Tid:</b> {{modalInformation.tid}}</p>
                               <p><b>Scene:</b> {{modalInformation.scene}}</p>
