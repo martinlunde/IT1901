@@ -1,6 +1,6 @@
-<div class="col-md-12 fontFamily" id="arrangementer" ng-init="showBooking = false">
+<div class="col-md-12 fontFamily changeMarginBottom" id="arrangementer" ng-init="showBooking = false">
   <div class="row">
-    <div class="col-md-12" id="serchingSite" style="margin-top: 10%;" ng-show="showBooking == false">
+    <div class="col-md-12 changeMarginTop" id="serchingSite" ng-show="showBooking == false">
       <div class="col-md-8 col-md-offset-2">
           <h3 style="text-align: center;">Skriv inn referanse-id:</h3>
           <hr>
@@ -19,9 +19,9 @@
         <h6 ng-show="objectNotFound">Det finnes ingen bookinger i vår database med ID "{{searchText}}".</h6>
       </div>
     </div>
-    <div class="col-md-12" id="bookingSite" style="margin-top: 10%;" ng-show="showBooking == true">
+    <div class="col-md-12 changeMarginTop" id="bookingSite" ng-show="showBooking == true">
       <div class="col-md-8 col-md-offset-2" style="text-align: center;">
-        <div class="col-md-12" style="margin-bottom: 20px;">
+        <div class="col-md-12 changeMarginBottom">
           <h4>TEKNISKE DETALJER FOR KONSERT</h4>
           <hr>
         </div>
@@ -29,49 +29,53 @@
           <div class="col-md-6">
             <img class="img-responsive img-rounded img-centered" src="{{booking.imgUrl}}" alt="bilde av {{booking.artist}}" style="height: 200px;"/>
           </div>
-          <div class="col-md-6" style="text-align: left; padding-top: 30px;">
+          <div class="col-md-6 artistInfo">
             <p><b>Artist: </b>{{booking.artist}}</p>
             <p><b>Dato: </b>{{intToDateFunction(booking.dato).toDateString()}}</p>
             <p><b>Tid: </b>{{booking.tid}}</p>
             <p><b>Scene: </b>{{booking.scene}}</p>
           </div>
         </div>
-        <div class="col-md-12" ng-hide="false">
+        <div class="row" ng-hide="false">
           <hr>
-          <div class="col-md-6" style="text-align: left; border-right: 1px solid #eee;">
-            <h3 style="text-align: center;">Tekniker:</h3>
+
+
+          <div class="col-md-5 alignLeft">
+            <h3>Tekniker:</h3>
             <br>
             <p><b>Navn:</b>{{mainBrukere[booking.teknikere[0]].navn}}</p>
             <p><b>E-mail: </b>{{mainBrukere[booking.teknikere[0]].email}}</p>
             <p><b>Telefon: </b>{{mainBrukere[booking.teknikere[0]].telefon}}</p>
           </div>
+
+          <div class="col-md-7 tekniskDesign" style="text-align:left;">
+
+            <h3>Tekniske krav:</h3>
+            <ul class="list-unstyled" >
+              <li ng-repeat="(key, value) in booking.tekniske_behov">
+                <div class="colonne">
+                  <p style="display: inline-block;"><b></b>   {{value}}</p>
+                  <a ng-click="removeTekniskBehov(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
+              </li>
+              <li ng-show="booking.hasOwnProperty('tekniske_behov') == false">Ingen tekniske behov lagt til for denne konserten.</li>
+            </ul>
+            <form name="tekniske_behov_form" class="form-inline" style="text-align: left;">
+              <div class="form-group">
+                <label for="Legg til krav">Krav:</label>
+                <input type="text" name="name" ng-model="tekniske_behov_form.nyttKrav" required>
+              </div>
+                <button type="submit" ng-disabled="tekniske_behov_form.$invalid" ng-click="addTekniskBehov(tekniske_behov_form.nyttKrav)" class="btn btn-samfundet">+ Nytt teknisk krav</button>
+            </form>
+          </div>
+
         </div>
+        <hr>
         <div class="col-md-12">
-          <hr>
-          <h3>Tekniske krav:</h3>
-          <li ng-repeat="(key, value) in booking.tekniske_behov">
-            <div class="colonne">
-              <p style="display: inline-block;"><b></b>   {{value}}</p>
-              <a ng-click="removeTekniskBehov(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
-            </div>
-          </li>
-          <li ng-show="booking.hasOwnProperty('tekniske_behov') == false">Ingen tekniske behov lagt til for denne konserten.</li>
-          <form name="tekniske_behov_form" style="text-align: left;">
-            <div class="form-group col-md-8">
-              <label for="Legg til krav">Krav:</label>
-              <input type="text" class="form-control" name="name" ng-model="tekniske_behov_form.nyttKrav" required>
-            </div>
-            <div class="col-md-4">
-              <br>
-              <button type="submit" ng-disabled="tekniske_behov_form.$invalid" ng-click="addTekniskBehov(tekniske_behov_form.nyttKrav)" class="btn btn-samfundet">Legg til nytt teknisk krav</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-12">
-            <br><br>
+            <br>
             <button type="button" class="btn btn-samfundet" style="display: block; margin: auto;" ng-click="resetBooking()">Tilbake</button>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>

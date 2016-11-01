@@ -324,3 +324,21 @@ a:focus {
  .border-Right{
    border-right: 1px solid grey;
  }
+ /*Referanse*/
+ .changeMarginTop{
+   margin-top: 10%;
+ }
+ .changeMarginBottom {
+   margin-bottom: 20px;
+ }
+ .tekniskDesign {
+   text-align: left;
+   border-left: 1px solid #eee;
+ }
+ .artistInfo {
+   text-align: left;
+   padding-top: 30px;
+ }
+ .alignLeft {
+   text-align: left;
+ }
