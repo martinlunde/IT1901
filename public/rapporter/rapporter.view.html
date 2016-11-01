@@ -43,7 +43,7 @@
         <li ng-repeat="(key, value) in filtrertListe">
           <div class ="row">
             <div class="col-lg-12 dateDesign">
-              <h2 class="fontSizeDate">{{intToDateFunction(key).toDateString()}}</h2>
+              <h3 class="fontSizeDate">{{printableDateFunction(key)}}</h3>
             </div>
           </div>
           <ul class="list-unstyled">
@@ -63,7 +63,7 @@
                 </div>
                 <!--<p>{{konsert.billettpris}}</p>-->
                 <div class="col-lg-2">
-                  <a ng-show="konsert.har_rapport == true" ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-danger">Se Rapport</button></a>
+                  <a ng-show="konsert.har_rapport == true" ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-samfundet">Se Rapport</button></a>
                 </div>
               </div>
             </li>
