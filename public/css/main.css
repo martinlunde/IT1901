@@ -306,7 +306,7 @@ a:focus {
  }
 
  .fontFamily{
-   font-family: "Avenir Book", Arial, sans-serif;;
+   font-family: "Avenir Book", Arial, sans-serif !important;
  }
 
  .pFontSize {
