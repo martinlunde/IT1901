@@ -1,131 +1,132 @@
 <div id="ny-booking" class="col-md-12 view-container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col-md-12">
-            <h3>Søk etter band</h3>
-            <hr>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="Search for artist">Søk</label>
-            <input type="text" class="form-control" name="name" ng-model="searchText" ng-change="searchForArtist(searchText)"/>
-          </div>
-        </div>
-        <div class="col-md-12" style="max-height: 600px; overflow-x: hidden;">
-          <div class="col-md-12" style="padding: 0px; margin-bottom: 20px;" ng-repeat="artist in searchResult|limitTo:15">
-            <div class="col-md-4">
-              <img src="{{artist.images[0].url}}" alt="" height="100px"/>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Søk etter band</h3>
+                    <hr> </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="Search for artist">Søk</label>
+                        <input type="text" class="form-control" name="name" ng-model="searchText" ng-change="searchForArtist(searchText)" /> </div>
+                </div>
+                <div class="col-md-12" style="max-height: 600px; overflow-x: hidden;">
+                    <div class="col-md-12" style="padding: 0px; margin-bottom: 20px;" ng-repeat="artist in searchResult|limitTo:15">
+                        <div class="col-md-4"> <img src="{{artist.images[0].url}}" alt="" height="100px" /> </div>
+                        <div class="col-md-6">
+                            <p><b>Navn:</b> {{artist.name}}</p>
+                            <p><b>Followers:</b> {{artist.followers.total}}</p>
+                            <!-- <a href="#{{artist.id}}" class="modal-link" data-toggle="modal" target="_self">Click</a> --></div>
+                        <div class="col-md-2">
+                            <a ng-click="emptyFormData(); updateFormData(artist); lagTeknikerListe()" href="#form-modal" target="_self" class="modal-link" data-toggle="modal">
+                                <button type="button" class="btn btn-samfundet">Oversikt</button>
+                            </a>
+                        </div>
+                        <br> </div>
+                </div>
             </div>
-            <div class="col-md-6">
-              <p><b>Navn:</b> {{artist.name}}</p>
-              <p><b>Followers:</b> {{artist.followers.total}}</p>
-              <!-- <a href="#{{artist.id}}" class="modal-link" data-toggle="modal" target="_self">Click</a> -->
-            </div>
-            <div class="col-md-2">
-              <a ng-click="emptyFormData(); updateFormData(artist)" href="#form-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-samfundet">Oversikt</button></a>
-            </div>
-            <br>
-          </div>
         </div>
-      </div>
+        <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false; booking.aldersgrense = 18">
+            <div class="modal-content col-md-10 col-md-offset-1">
+                <div class="close-modal" data-dismiss="modal" ng-click="emptyFormData(); resetBookingForm(); skjema_sendt = false">
+                    <div class="lr">
+                        <div class="rl"> </div>
+                    </div>
+                </div>
+                <div id="usendt_booking_innhold" class="container" ng-show="!skjema_sendt">
+                    <div class="row">
+                        <h1>Bookingskjema</h1>
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="col-md-6"> <img src="{{formData.images[0].url}}" class="img-responsive img-rounded img-centered" alt="" style="height:200px;"> </div>
+                            <div class="col-md-6" style="padding-top: 40px;">
+                                <p><b>Band: </b>{{formData.name}}</p>
+                                <p><b>Populæritet: </b>{{formData.popularity}}</p>
+                                <p><b>Followers på Spotify: </b>{{formData.followers.total}}</p>
+                                <p><b>Sjangere: </b><span ng-repeat="sjanger in formData.genres" style="text-transform: capitalize;">{{sjanger}}, </span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 text-left">
+                            <form name="bookingForm">
+                                <div class="col-md-6">
+                                    <div class="form-group" show-errors>
+                                        <label>Scene: </label>
+                                        <select class="form-control" name="scene" ng-change="suggestedPrice()" ng-model="booking.scene" required>
+                                            <option value="Storsalen">Storsalen</option>
+                                            <option value="Edgar">Edgar</option>
+                                            <option value="Klubben">Klubben</option>
+                                            <option value="Knaus">Knaus</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Billettpris (Medlem): </label>
+                                        <input type="number" class="form-control" name="billettpris_medlem" ng-class="{'alert-danger' : booking.tooExpensive}" ng-model="booking.billettpris_medlem" required /> </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Billettpris (Ikke medlem): </label>
+                                        <input type="number" class="form-control" name="billettpris_ikke_medlem" ng-class="{'alert-danger' : booking.tooExpensive}" ng-model="booking.billettpris_ikke_medlem" required /> </div>
+                                     <div class="form-group" show-errors>
+                                        <label>Aldersgrense: </label>
+                                        <input type="number" class="form-control" name="aldersgrense" ng-model="booking.aldersgrense" required /> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" show-errors>
+                                        <label>Dato: </label>
+                                        <input type="date" class="form-control" name="dato" ng-change="checkDate()" ng-class="{'alert-danger' : booking.pastDate}" ng-model="booking.dato" required /> </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Klokkeslett: </label>
+                                        <select class="form-control" name="concertTime" ng-model="booking.tid" required> <!-- Har forandret name="scene" til name="concertTime"-->
+                                            <option>12.00</option>
+                                            <option>12.30</option>
+                                            <option>14.00</option>
+                                            <option>14.30</option>
+                                            <option>15.00</option>
+                                            <option>15.30</option>
+                                            <option>16.00</option>
+                                            <option>16.30</option>
+                                            <option>17.00</option>
+                                            <option>17.30</option>
+                                            <option>18.00</option>
+                                            <option>18.30</option>
+                                            <option>19.00</option>
+                                            <option>19.30</option>
+                                            <option>20.00</option>
+                                            <option>20.30</option>
+                                            <option>21.00</option>
+                                            <option>21.30</option>
+                                            <option>22.00</option>
+                                            <option>22.30</option>
+                                            <option>23.00</option>
+                                            <option>23.30</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Tekniker: </label>
+                                        <select class="form-control" name="tekniker" ng-model="booking.tekniker" required>
+                                          <option ng-repeat="(key, value) in teknikerListe" value="{{key}}">{{value.navn}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Kostnad: </label>
+                                        <input type="number" class="form-control" name="kostnad" ng-model="booking.kostnad" required />
+                                    </div>
+                                    <div class="form-group" show-errors>
+                                        <label>Estimert profitt: </label>
+                                        <p class="form-control-static" >{{booking.profitt}}</p></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-samfundet">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="sendt_booking_innhold" class="container" ng-show="skjema_sendt">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h2>Booking er sendt for godkjennelse!</h2>
+                            <h2><small>Bookingen vil stå som <i>UBESVART</i> inntil bookingsjef har svart.</small></h2> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false">
-        <div class="modal-content col-md-10 col-md-offset-1">
-            <div class="close-modal" data-dismiss="modal" ng-click="emptyFormData(); resetBookingForm(); skjema_sendt = false">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div id="usendt_booking_innhold" class="container" ng-show="!skjema_sendt">
-              <div class="row">
-                <h1>Bookingskjema</h1>
-                <div class="col-md-8 col-md-offset-2">
-                  <div class="col-md-6">
-                    <img src="{{formData.images[0].url}}" class="img-responsive img-rounded img-centered" alt="" style="height:200px;">
-                  </div>
-                  <div class="col-md-6" style="padding-top: 40px;">
-                    <p><b>Band: </b>{{formData.name}}</p>
-                    <p><b>Populæritet: </b>{{formData.popularity}}</p>
-                    <p><b>Followers på Spotify: </b>{{formData.followers.total}}</p>
-                    <p><b>Sjangere: </b><span ng-repeat="sjanger in formData.genres" style="text-transform: capitalize;">{{sjanger}}, </span></p>
-                  </div>
-                </div>
-                <div class="col-md-8 col-md-offset-2 text-left">
-                  <form name="bookingForm">
-                    <div class="col-md-6">
-                      <div class="form-group" show-errors>
-                        <label>Aldersgrense: </label><input type="number" class="form-control" name="aldersgrense" ng-model="booking.aldersgrense" required />
-                      </div>
-                      <div class="form-group" show-errors>
-                        <label>Billettpris (Medlem): </label><input type="number" class="form-control" name="billettpris_medlem" ng-model="booking.billettpris_medlem" required />
-                      </div>
-                      <div class="form-group" show-errors>
-                        <label>Billettpris (Ikke medlem): </label><input type="number" class="form-control" name="billettprip_ikke_medlem" ng-model="booking.billettprip_ikke_medlem" required />
-                      </div>
-                      <div class="form-group" show-errors>
-                        <label>Scene: </label>
-                        <select class="form-control" name="scene" ng-model="booking.scene" required>
-                          <option value="Edgar">Edgar</option>
-                          <option value="Klubben">Klubben</option>
-                          <option value="Knaus">Knaus</option>
-                          <option value="Storsalen">Storsalen</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group" show-errors>
-                        <label>Dato: </label><input type="date" class="form-control" name="dato" ng-model="booking.dato" required />
-                      </div>
-                      <div class="form-group" show-errors>
-                        <label>Klokkeslett: </label>
-                        <select class="form-control" name="scene" ng-model="booking.tid" required>
-                          <option>12.00</option>
-                          <option>12.30</option>
-                          <option>14.00</option>
-                          <option>14.30</option>
-                          <option>15.00</option>
-                          <option>15.30</option>
-                          <option>16.00</option>
-                          <option>16.30</option>
-                          <option>17.00</option>
-                          <option>17.30</option>
-                          <option>18.00</option>
-                          <option>18.30</option>
-                          <option>19.00</option>
-                          <option>19.30</option>
-                          <option>20.00</option>
-                          <option>20.30</option>
-                          <option>21.00</option>
-                          <option>21.30</option>
-                          <option>22.00</option>
-                          <option>22.30</option>
-                          <option>23.00</option>
-                          <option>23.30</option>
-                        </select>
-                      </div>
-                      <div class="form-group" show-errors>
-                        <label>Kostnad: </label><input type="number" class="form-control" name="kostnad" ng-model="booking.kostnad" required />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <button ng-click="sendBooking(booking)" type="submit" ng-disabled="bookingForm.$invalid" class="btn btn-samfundet">Send</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div id="sendt_booking_innhold" class="container" ng-show="skjema_sendt">
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <h2>Booking er sendt for godkjennelse!</h2>
-                  <h2><small>Bookingen vil stå som <i>UBESVART</i> inntil bookingsjef har svart.</small></h2>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-  </div>
 </div>

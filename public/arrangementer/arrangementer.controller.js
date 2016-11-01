@@ -41,6 +41,8 @@
         return false;
       } else if ((($scope.visTidligereArrangementer != true) && (today > date))) {
         return false;
+      } else if (($scope.visMineArrangementer == true) && ((value.teknikere == undefined) || (value.teknikere.indexOf($scope.currentUser.uid) == -1))) {
+        return false;
       }
       return true;
     }
@@ -61,11 +63,20 @@
     $scope.intToDateFunction = function(tall) {
       tall = String(tall);
       var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
-      return dato;
+      return dato
+    }
+
+    $scope.printableDateFunction = function(tall) {
+      tall = String(tall);
+      var dato = new Date(tall.substring(0,4) + "/" + tall.substring(4,6) + '/' + tall.substring(6,8));
+      var months = ["JANUAR", "FEBRUAR", "MARS", "APRIL", "MAI", "JUNI", "JULI", "AUGUST", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"];
+      var days = ["SØNDAG", "MANDAG", "TIRSDAG", "ONSDAG", "TORSDAG", "FREDAG", "LØRDAG"];
+      return days[dato.getDay()] + " " + dato.getDate() + ". " + months[dato.getMonth()];
     }
 
     $scope.updateModal = function(key, konsert) {
       $scope.modalInformation = konsert;
+      $scope.modalInformation.key = key;
       if(konsert.har_rapport == true) {
         $scope.modalInformation.rapport = $scope.mainRapporter[key];
       }
