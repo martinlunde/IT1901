@@ -38,6 +38,7 @@
           <div class="col-md-5">
             <nav class="nav-left">
               <ul>
+                <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingansvarlig'))"><a href="/#/bookinger">Bookinger</a></li>
                 <li ng-show="(currentUser != null)"><a href="/#/">Arrangementer</a></li>
               </ul>
             </nav>
@@ -48,11 +49,11 @@
           <div class="col-md-5">
             <nav class="nav-right">
               <ul>
-                <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingsjef') || (currentUserInformation.stilling == 'bookingansvarlig'))"><a href="/#/bookinger">Bookinger</a></li>
+                <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/bookinger">Bookinger</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingansvarlig')"><a href="/#/ny-booking">+ Ny booking</a></li>
                 <li ng-show="(currentUser != null) && (currentUserInformation.stilling == 'bookingsjef')"><a href="/#/rapporter">Rapporter</a></li>
                 <li ng-show="(currentUser != null) && ((currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'arrangør'))"><a href="/#/ny-rapport">+ Ny rapport</a></li>
-                <li><a href="/#/referanse">Finn booking</a></li>
+                <!-- <li><a href="/#/referanse">Finn booking</a></li> -->
               </ul>
             </nav>
           </div>
