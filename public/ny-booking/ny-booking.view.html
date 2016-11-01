@@ -18,7 +18,7 @@
                             <p><b>Followers:</b> {{artist.followers.total}}</p>
                             <!-- <a href="#{{artist.id}}" class="modal-link" data-toggle="modal" target="_self">Click</a> --></div>
                         <div class="col-md-2">
-                            <a ng-click="emptyFormData(); updateFormData(artist)" href="#form-modal" target="_self" class="modal-link" data-toggle="modal">
+                            <a ng-click="emptyFormData(); updateFormData(artist); lagTeknikerListe()" href="#form-modal" target="_self" class="modal-link" data-toggle="modal">
                                 <button type="button" class="btn btn-samfundet">Oversikt</button>
                             </a>
                         </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false">
+        <div class="item-modal modal fade" id="form-modal" tabindex="-1" role="dialog" aria-hidden="true" ng-init="skjema_sendt = false; booking.aldersgrense = 18">
             <div class="modal-content col-md-10 col-md-offset-1">
                 <div class="close-modal" data-dismiss="modal" ng-click="emptyFormData(); resetBookingForm(); skjema_sendt = false">
                     <div class="lr">
@@ -99,8 +99,15 @@
                                         </select>
                                     </div>
                                     <div class="form-group" show-errors>
+                                        <label>Tekniker: </label>
+                                        <select class="form-control" name="tekniker" ng-model="booking.tekniker" required>
+                                          <option ng-repeat="(key, value) in teknikerListe" value="{{key}}">{{value.navn}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" show-errors>
                                         <label>Kostnad: </label>
-                                        <input type="number" class="form-control" name="kostnad" ng-model="booking.kostnad" required /> </div>
+                                        <input type="number" class="form-control" name="kostnad" ng-model="booking.kostnad" required />
+                                    </div>
                                     <div class="form-group" show-errors>
                                         <label>Estimert profitt: </label>
                                         <p class="form-control-static" >{{booking.profitt}}</p></div>

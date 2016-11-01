@@ -21,7 +21,6 @@
         };
         $scope.emptyFormData = function () {
             $scope.formData = {};
-            console.log("Empty");
         };
         $scope.convertToTwoNumbers = function (number) {
             if (number < 10) {
@@ -77,6 +76,14 @@
                 $scope.booking.pastDate = true;
                }else{$scope.booking.pastDate = false;}
         };
+        $scope.lagTeknikerListe = function() {
+          $scope.teknikerListe = {};
+          angular.forEach($scope.mainBrukere, function(value,key) {
+            if(value.stilling == "tekniker") {
+              $scope.teknikerListe[key] = value;
+            }
+          });
+        };
         $scope.sendBooking = function (booking) {
             // Fikser dato-objektet
             var year = booking.dato.getFullYear();
@@ -100,6 +107,7 @@
                 , sjanger: $scope.formData.genres
                 , spotify_id: $scope.formData.id
                 , status: "ubesvart"
+                , teknikere : [booking.tekniker]
                 , tid: booking.tid
             });
             // Endrer variabelen til å vise tilbakemelding
