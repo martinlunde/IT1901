@@ -345,3 +345,9 @@ a:focus {
  .changeSize {
    font-size: 24px;
  }
+
+ .rapportModal {
+   width:75%;
+   margin: auto;
+   min-height: 75%;
+ }
