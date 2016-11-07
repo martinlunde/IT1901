@@ -42,27 +42,27 @@
       <ul class="list-unstyled">
         <li ng-repeat="(key, value) in filtrertListe">
           <div class ="row">
-            <div class="col-lg-12 dateDesign">
+            <div class="col-sm-12 dateDesign">
               <h3 class="fontSizeDate">{{printableDateFunction(key)}}</h3>
             </div>
           </div>
           <ul class="list-unstyled">
             <li ng-repeat="(key, konsert) in value" ng-init="">
               <div class="row pFontSize bookingoObject">
-                <div class="col-lg-3 alignMiddle border-Right">
+                <div class="col-sm-3 alignMiddle border-Right">
                   <p>{{konsert.artist}}</p>
                 </div>
-                <div class="col-lg-2 alignMiddle textAlign border-Right">
+                <div class="col-sm-2 alignMiddle textAlign border-Right">
                   <p>{{konsert.tid}}</p>
                 </div>
-                <div class="col-lg-2 alignMiddle textAlign border-Right">
+                <div class="col-sm-2 alignMiddle textAlign border-Right">
                   <p>{{konsert.scene}}</p>
                 </div>
-                <div class="col-lg-3 alignMiddle textAlign">
+                <div class="col-sm-3 alignMiddle textAlign">
                   <p>{{konsert.pris_medlem}},- / {{konsert.pris_ikke_medlem}},-</p>
                 </div>
                 <!--<p>{{konsert.billettpris}}</p>-->
-                <div class="col-lg-2">
+                <div class="col-sm-2">
                   <a ng-show="konsert.har_rapport == true" ng-click="updateModal(key, konsert)" href="#information-modal" target="_self" class="modal-link" data-toggle="modal"><button type="button" class="btn btn-samfundet">Se Rapport</button></a>
                 </div>
               </div>
