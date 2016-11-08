@@ -29,7 +29,7 @@
         switch(flag){
             case "tekniske_behov":
                 firebase.database().ref().child('bookinger').child($scope.booking.key).update({
-			         tekniske_behov : $scope.booking.tekniske_behov
+			                   tekniske_behov : $scope.booking.tekniske_behov
                     });
                 break;
             case "sang":
@@ -48,16 +48,16 @@
         $scope.tekniske_behov_form.nyttKrav = "";
 	};
     $scope.removeTekniskBehov = function(key){
-        console.log(key)
-		$scope.booking.tekniske_behov.splice(key,1);
-		$scope.oppdaterDatabase("tekniske_behov");
+		    $scope.booking.tekniske_behov.splice(key,1);
+		    $scope.oppdaterDatabase("tekniske_behov");
+        console.log($scope.booking.tekniske_behov);
 	};
     $scope.addSong = function(krav) {
         if(!$scope.booking.sanger){
             $scope.booking.sanger = [];
         };
         if($scope.sanger_form.ovingCheckbox == true){
-            krav = "Skal også øves på: " + krav;
+            krav = "Skal øves på: " + krav;
             $scope.sanger_form.ovingCheckbox = false;
         }
         $scope.booking.sanger.push(krav);

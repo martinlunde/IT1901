@@ -56,7 +56,7 @@
                   <a ng-click="removeTekniskBehov(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
               </li>
-              <li ng-show="booking.hasOwnProperty('tekniske_behov') == false">Ingen tekniske behov lagt til for denne konserten.</li>
+              <li ng-show="booking.hasOwnProperty('tekniske_behov') == false || (booking.tekniske_behov.length == 0)">Ingen tekniske behov lagt til for denne konserten.</li>
             </ul>
             <form name="tekniske_behov_form" class="form-inline" style="text-align: left;">
               <div class="form-group">
@@ -73,7 +73,7 @@
                   <a ng-click="removeSong(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
               </li>
-              <li ng-show="booking.hasOwnProperty('sanger') == false">Ingen sanger lagt til for denne konserten.</li>
+              <li ng-show="booking.hasOwnProperty('sanger') == false || (booking.sanger.length == 0)">Ingen sanger lagt til for denne konserten.</li>
             </ul>
             <form name="sanger_form" class="form-inline" style="text-align: left;">
               <div class="form-group">

@@ -38,6 +38,9 @@
     }
 
     $scope.sendBooking = function () {
+      if ($scope.formData.hasOwnProperty("kommentar") == false) {
+        $scope.formData.kommentar = "";
+      }
       firebase.database().ref().child('konsertrapporter').child($scope.formData.key).set({
         profitt : $scope.formData.profitt,
         solgte_billetter_medlem : $scope.formData.solgte_billetter_medlem,

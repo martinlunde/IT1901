@@ -97,6 +97,12 @@
                           <p><b>Kostnad for booking:</b> {{modalInformation.kostnad}},-</p>
                           <p><b>Tilleggskostnader:</b> {{modalInformation.rapport.tilleggskostnader}},-</p>
                           <p><b>Fortjeneste:</b> {{modalInformation.rapport.profitt}},-</p>
+                          <div ng-show="modalInformation.rapport.kommentar != ''">
+                            <p><b>Kommentar:</b></p>
+                            <p>
+                              {{modalInformation.rapport.kommentar}}
+                            </p>
+                          </div>
                         </div>
                     </div>
                 </div>
