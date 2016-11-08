@@ -68,7 +68,7 @@
                   <div class="form-group" show-errors>
                     <label>Fyll ut hvorfor ikke: <input type="text" class="form-control" name="kommentar" ng-model="avvisning.kommentar" required /></label>
                   </div>
-                  <button ng-click="avvisBooking(key, avvisning.kommentar); filterFunction()" type="submit" ng-disabled="avvisForm.$invalid" class="btn btn-primary">Send avvisning</button>
+                  <button ng-click="showAvvisForm = !showAvvisForm; avvisBooking(key, avvisning.kommentar); filterFunction()" type="submit" ng-disabled="avvisForm.$invalid" class="btn btn-primary">Send avvisning</button>
                 </form>
                 <div class="col-sm-12" ng-show="showKommentar == true">
                   <h5><b>Kommentar: </b><i>{{konsert.kommentar_for_avvisning}}</i></h5>
