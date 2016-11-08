@@ -6,7 +6,7 @@
           <hr>
       </div>
       <div class="col-md-6 col-md-offset-3">
-        <div class="form-group col-md-10">
+        <div class="form-group col-md-10" ng-init ="checkUrl()" >
           <label for="Search for booking">Søk</label>
           <input type="text" class="form-control" name="id" ng-focus="objectNotFound = false" ng-model="searchText"/>
         </div>
@@ -38,23 +38,21 @@
         </div>
         <div class="row" ng-hide="false">
           <hr>
-
-
           <div class="col-md-5 alignLeft">
             <h3>Tekniker:</h3>
             <br>
             <p><b>Navn:</b>{{mainBrukere[booking.teknikere[0]].navn}}</p>
-              <p><b>E-mail: </b><a href="mailto:{{mainBrukere[booking.teknikere[0]].email}}" target="_top">{{mainBrukere[booking.teknikere[0]].email}}</a></p>
+            <p><b>E-mail: </b><a href="mailto:{{mainBrukere[booking.teknikere[0]].email}}">{{mainBrukere[booking.teknikere[0]].email}}</a></p>
             <p><b>Telefon: </b>{{mainBrukere[booking.teknikere[0]].telefon}}</p>
           </div>
-
+          <hr>
           <div class="col-md-7 tekniskDesign" style="text-align:left;">
 
             <h3>Tekniske krav:</h3>
             <ul class="list-unstyled" >
               <li ng-repeat="(key, value) in booking.tekniske_behov">
                 <div class="colonne">
-                  <p style="display: inline-block;"><b></b>   {{value}}</p>
+                  <p style="display: inline-block;"><b>{{value}}</b></p>
                   <a ng-click="removeTekniskBehov(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
               </li>
@@ -62,13 +60,32 @@
             </ul>
             <form name="tekniske_behov_form" class="form-inline" style="text-align: left;">
               <div class="form-group">
-                <label for="Legg til krav">Krav:</label>
-                <input type="text" name="name" ng-model="tekniske_behov_form.nyttKrav" required>
+                <!--label for="Legg til krav">Krav:</label-->
+                <input type="text" name="tekniske_behov_form_input" placeholder="Krav" ng-model="tekniske_behov_form.nyttKrav" required>
               </div>
                 <button type="submit" ng-disabled="tekniske_behov_form.$invalid" ng-click="addTekniskBehov(tekniske_behov_form.nyttKrav)" class="btn btn-samfundet">+ Nytt teknisk krav</button>
             </form>
+                          <h3>Sanger som skal spilles:</h3>
+            <ul class="list-unstyled" >
+              <li ng-repeat="(key, value) in booking.sanger">
+                <div class="colonne">
+                  <p style="display: inline-block;"><b>{{value}}</b></p>
+                  <a ng-click="removeSong(key)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
+              </li>
+              <li ng-show="booking.hasOwnProperty('sanger') == false">Ingen sanger lagt til for denne konserten.</li>
+            </ul>
+            <form name="sanger_form" class="form-inline" style="text-align: left;">
+              <div class="form-group">
+                <!--label for="Legg til krav">Krav:</label-->
+                <input type="text" name="name" placeholder="Sang" ng-model="sanger_form.nyttKrav" required>
+              </div>
+               <div class = "checkbox">
+                   <label><input type = "checkbox" name = "ovingCheckbox" ng-model="sanger_form.ovingCheckbox"><b>Skal øves på</b></label>
+               </div>
+                <button type="submit" ng-disabled="sanger_form.$invalid" ng-click="addSong(sanger_form.nyttKrav)" class="btn btn-samfundet">+ Ny Sang</button>
+            </form>
           </div>
-
         </div>
         <hr>
         <div class="col-md-12">
