@@ -93,7 +93,8 @@
                               <img src="{{modalInformation.spotifyData.images[0].url}}" alt="Bilde av {{modalInformation.artist}}" style="height: 400px; width: 400px;" class="img-responsive img-rounded img-centered">
                             </div>
                             <div class="col-md-6" style="margin: auto 0;">
-                              <p ng-show="(currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'bookingsjef')"><b>ID:</b> {{modalInformation.key}}</p>
+                              <p ng-show="(currentUserInformation.stilling == 'bookingansvarlig') || (currentUserInformation.stilling == 'bookingsjef')"><b>ID:</b> {{modalInformation.key}}
+                              <button type="button" class="btn btn-samfundet" ng-click="changeToReferansePage(modalInformation.key)">Gå til referanse side</button></p>
                               <p><b>Dato:</b> {{intToDateFunction(modalInformation.dato).toDateString()}}</p>
                               <p><b>Tid:</b> {{modalInformation.tid}}</p>
                               <p><b>Scene:</b> {{modalInformation.scene}}</p>
@@ -104,6 +105,20 @@
                               <p><b>Booket av:</b> {{mainBrukere[modalInformation.bookingansvarlig].navn}}</p>
                               <p><b>Kostnad:</b> {{modalInformation.kostnad}},-</p>
                               <p><b>Teknikere:</b> <span ng-repeat="tekniker in modalInformation.teknikere" style="text-transform: capitalize;">{{mainBrukere[tekniker].navn}}, </span></p>
+                              <p ng-show="(currentUserInformation.stilling == 'tekniker')"><b>Tekniske behov:</b></p>
+                              <p ng-repeat="(key, value) in modalInformation.tekniske_behov" style="margin: -7px 0px 0px 70px;">
+                                - {{value}}
+                              </p>
+                              <p ng-show="modalInformation.hasOwnProperty('tekniske_behov') == false || (modalInformation.tekniske_behov.length == 0)" style="margin: -7px 0px 0px 70px;">Ingen tekniske behov lagt til for denne konserten.</p>
+
+                              <!--
+                              <ul class="tekniske-behov" ng-show="(currentUserInformation.stilling == 'tekniker')">
+                                <li ng-repeat="(key, value) in modalInformation.tekniske_behov">
+                                    <p>{{value}}</p>
+                                </li>
+                                <li ng-show="modalInformation.hasOwnProperty('tekniske_behov') == false || (modalInformation.tekniske_behov.length == 0)">Ingen tekniske behov lagt til for denne konserten.</li>
+                              </ul>
+                            -->
                             </div>
                           </div>
                           <button type="button" class="btn btn-samfundet" ng-show="modalInformation.har_rapport == true && showRapport == false;" ng-click="showRapport = !showRapport">Vis rapport</button>

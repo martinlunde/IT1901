@@ -100,8 +100,14 @@
     }
 
     $scope.changePage = function(url) {
+      console.log(url);
       $('.modal .close-modal').click();
       document.location.href = url;
+    }
+
+    $scope.changeToReferansePage = function(id) {
+      $('.modal .close-modal').click();
+      document.location.href = "/#/referanse#" + id;
     }
 
     $scope.getSceneKapasitet = function(scene) {
